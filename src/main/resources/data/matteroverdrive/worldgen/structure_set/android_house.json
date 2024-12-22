@@ -1,0 +1,14 @@
+{
+    "structures": [
+        {
+            "structure": "matteroverdrive:android_house",
+            "weight": 1
+        }
+    ],
+    "placement": {
+        "salt": 1642136474,
+        "spacing": 42,
+        "separation": 23,
+        "type": "minecraft:random_spread"
+    }
+}

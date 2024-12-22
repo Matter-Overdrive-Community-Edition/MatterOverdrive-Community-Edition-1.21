@@ -1,0 +1,156 @@
+{
+	"crate_open": {
+		"category": "blocks",
+		"subtitle": "subtitles.matteroverdrive.crate_open",
+		"sounds": [
+			"matteroverdrive:block/crate_open"
+		]
+	},
+	"crate_close": {
+		"category": "blocks",
+		"subtitle": "subtitles.matteroverdrive.crate_close",
+		"sounds": [
+			"matteroverdrive:block/crate_close"
+		]
+	},
+	"matter_decomposer": {
+		"category": "blocks",
+		"subtitle": "subtitles.matteroverdrive.matter_decomposer",
+		"sounds": [
+			"matteroverdrive:block/matter_decomposer"
+		]
+	},
+	"machine": {
+		"category": "blocks",
+		"subtitle": "subtitles.matteroverdrive.generic_machine",
+		"sounds": [
+			"matteroverdrive:block/machine"
+		]
+	},
+	"machine_electric": {
+		"category": "blocks",
+		"subtitle": "subtitles.matteroverdrive.generic_machine",
+		"sounds": [
+			"matteroverdrive:block/machine_electric"
+		]
+	},
+	"transporter": {
+		"category": "blocks",
+		"subtitle": "subtitles.matteroverdrive.transporter",
+		"sounds": [
+			"matteroverdrive:block/transporter"
+		]
+	},
+	"transporter_arrive": {
+		"category": "blocks",
+		"subtitle": "subtitles.matteroverdrive.transporter_arrive",
+		"sounds": [
+			"matteroverdrive:block/transporter_arrive"
+		]
+	},
+	"matter_replicator": {
+		"category": "blocks",
+		"subtitle": "subtitles.matteroverdrive.matter_replicator",
+		"sounds": [
+			"matteroverdrive:block/matter_replicator"
+		]
+	},
+	"matter_analyzer": {
+		"category": "blocks",
+		"subtitle": "subtitles.matteroverdrive.matter_analyzer",
+		"sounds": [
+			"matteroverdrive:block/matter_analyzer"
+		]
+	},
+	"button_expand": {
+		"category": "master",
+		"subtitle": "subtitles.matteroverdrive.button_expand",
+		"sounds": [
+			"matteroverdrive:button/button_expand"
+		]
+	},
+	"button_soft0": {
+		"category": "master",
+		"subtitle": "subtitles.matteroverdrive.button_generic",
+		"sounds": [
+			"matteroverdrive:button/button_soft0"
+		]
+	},
+	"button_soft1": {
+		"category": "master",
+		"subtitle": "subtitles.matteroverdrive.button_generic",
+		"sounds": [
+			"matteroverdrive:button/button_soft1"
+		]
+	},
+	"button_loud3": {
+		"category": "master",
+		"subtitle": "subtitles.matteroverdrive.button_generic",
+		"sounds": [
+			"matteroverdrive:button/button_loud3"
+		]
+	},
+	"matter_scanner_running": {
+		"category": "players",
+		"subtitle": "subtitles.matteroverdrive.matter_scanner_running",
+		"sounds": [
+			"matteroverdrive:item/matter_scanner_running"
+		]
+	},
+	"matter_scanner_beep": {
+		"category": "players",
+		"subtitle": "subtitles.matteroverdrive.matter_scanner_beep",
+		"sounds": [
+			"matteroverdrive:item/matter_scanner_beep"
+		]
+	},
+	"matter_scanner_fail": {
+		"category": "players",
+		"subtitle": "subtitles.matteroverdrive.matter_scanner_fail",
+		"sounds": [
+			"matteroverdrive:item/matter_scanner_fail"
+		]
+	},
+	"matter_scanner_success": {
+		"category": "players",
+		"subtitle": "subtitles.matteroverdrive.matter_scanner_success",
+		"sounds": [
+			"matteroverdrive:item/matter_scanner_success"
+		]
+	},
+	"matter_scanner_scanbeep": {
+		"category": "players",
+		"subtitle": "subtitles.matteroverdrive.matter_scanner_beep",
+		"sounds": [
+			"matteroverdrive:item/matter_scanner_scanbeep"
+		]
+	},
+	"electric_arc_0": {
+		"category": "master",
+		"subtitle": "subtitles.matteroverdrive.electric_arc",
+		"sounds": [
+			"matteroverdrive:electric_arc_0"
+		]
+	},
+	"electric_arc_1": {
+		"category": "master",
+		"subtitle": "subtitles.matteroverdrive.electric_arc",
+		"sounds": [
+			"matteroverdrive:electric_arc_1"
+		]
+	},
+	"communicator_success": {
+		"category": "players",
+		"subtitle": "subtitles.matteroverdrive.communicator_success",
+		"sounds": [
+			"matteroverdrive:item/communicator_success"
+		]
+	},
+	"communicator_fail": {
+		"category": "players",
+		"subtitle": "subtitles.matteroverdrive.communicator_fail",
+		"sounds": [
+			"matteroverdrive:item/communicator_fail"
+		]
+	}
+}
