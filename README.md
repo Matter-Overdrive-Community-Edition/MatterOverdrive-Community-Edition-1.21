@@ -33,4 +33,4 @@ Although it may seem overpowered, Matter Overdrive takes a more realistic approa
 ![Matter Overdrive Blocks and Items](https://mo.simeonradivoev.com/wp-content/uploads/2015/05/main_screenshot.png)
 
 ## Issues:
-https://github.com/Matter-Overdrive-Community-Edition/MatterOverdrive-Community-Edition-1.19.2/issues
+[https://github.com/Matter-Overdrive-Community-Edition/MatterOverdrive-Community-Edition-1.21/issues](https://github.com/Matter-Overdrive-Community-Edition/MatterOverdrive-Community-Edition-1.21/issues)
