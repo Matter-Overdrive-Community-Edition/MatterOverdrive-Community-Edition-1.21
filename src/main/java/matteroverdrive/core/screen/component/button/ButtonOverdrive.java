@@ -11,6 +11,8 @@ import matteroverdrive.core.screen.component.utils.AbstractOverdriveButton;
 import matteroverdrive.core.utils.UtilsRendering;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.sounds.SoundManager;
 import net.minecraft.network.chat.Component;
@@ -257,6 +259,18 @@ public class ButtonOverdrive extends AbstractOverdriveButton {
 	@Override
 	public void updateVisiblity(int screenNumber) {
 
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -16,14 +16,14 @@ import javax.annotation.Nullable;
 
 import org.joml.Vector3dc;
 import org.joml.Vector3fc;
-
-import org.joml.Matrix4f;
-import org.joml.Quaterniond;
-
-import net.minecraft.util.math;
-import org.joml.Vector3d;
 import org.joml.Vector3f;
+import org.joml.Matrix4d;
+import org.joml.Matrix4f;
+import org.joml.Matrix4fc;
+import org.joml.Quaterniond;
+import org.joml.Vector3d;
 import org.joml.Vector4f;
+import org.joml.Vector4fc;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -59,8 +59,8 @@ public class UtilsMath {
 		double v = rand.nextDouble();
 		double theta = TWO_PI * u;
 		double phi = Math.acos(2 * v - 1);
-		return new Vector3f((float) (x0 + (radius.x * Math.sin(phi) * Math.cos(theta))),
-				(float) (y0 + (radius.y * Math.sin(phi) * Math.sin(theta))), (float) (z0 + (radius.z * Math.cos(phi))));
+		return new Vector3f((float) (x0 + (radius.x() * Math.sin(phi) * Math.cos(theta))),
+				(float) (y0 + (radius.y() * Math.sin(phi) * Math.sin(theta))), (float) (z0 + (radius.z() * Math.cos(phi))));
 	}
 
 	public static double easeIn(double time, double fromValue, double toValue, double maxTime) {
@@ -89,28 +89,28 @@ public class UtilsMath {
 
 	// Based on
 	// https://github.com/LWJGL/lwjgl/blob/master/src/java/org/lwjgl/util/vector/Matrix4f.java
-	public static Vector4f transformMatrixWithVector(Matrix4f left, Vector4f right, @Nullable Vector4f destination) {
+	public static Vector4f transformMatrixWithVector(Matrix4fc left, Vector4f right, @Nullable Vector4f destination) {
 		if (destination == null) {
 			destination = new Vector4f();
-		}
+		}//import org.joml.Vector3f;
 
-		destination.setX(left.m00 * right.x() + left.m10 * right.y() + left.m20 * right.z() + left.m30 * right.w());
-		destination.setY(left.m01 * right.x() + left.m11 * right.y() + left.m21 * right.z() + left.m31 * right.w());
-		destination.setZ(left.m02 * right.x() + left.m12 * right.y() + left.m22 * right.z() + left.m32 * right.w());
-		destination.setW(left.m03 * right.x() + left.m13 * right.y() + left.m23 * right.z() + left.m33 * right.w());
+		destination.set(left.m00() * right.x() + left.m10() * right.y() + left.m20() * right.z() + left.m30() * right.w());
+		destination.set(left.m01() * right.x() + left.m11() * right.y() + left.m21() * right.z() + left.m31() * right.w());
+		destination.set(left.m02() * right.x() + left.m12() * right.y() + left.m22() * right.z() + left.m32() * right.w());
+		destination.set(left.m03() * right.x() + left.m13() * right.y() + left.m23() * right.z() + left.m33() * right.w());
 
 		return destination;
 	}
 
 	// From
 	// https://github.com/LWJGL/lwjgl/blob/master/src/java/org/lwjgl/util/vector/Matrix4f.java
-	public static Matrix4f rotateMatrixAlongAxis(float radians, Vector3f axis, Matrix4f source,
-			@Nullable Matrix4f dest) {
+	public static Matrix4f rotateMatrixAlongAxis(float radians, Vector3f axis, Matrix4fc source,
+			@Nullable Matrix4fc dest) {
 		return rotateMatrixAlongAxis((float) Math.cos(radians), (float) Math.sin(radians), axis, source, dest);
 	}
 
 	public static Matrix4f rotateMatrixAlongAxis(float cosine, float sine, Vector3f axis, Matrix4f source,
-			@Nullable Matrix4f dest) {
+			@Nullable Matrix4fc dest) {
 		if (dest == null)
 			dest = new Matrix4f();
 		float oneminusc = 1.0f - cosine;
@@ -133,13 +133,13 @@ public class UtilsMath {
 		float f21 = yz * oneminusc - xs;
 		float f22 = axis.z() * axis.z() * oneminusc + cosine;
 
-		float t00 = source.m00() * f00 + source.m10() * f01 + source.m20() * f02;
-		float t01 = source.m01() * f00 + source.m11() * f01 + source.m21() * f02;
-		float t02 = source.m02() * f00 + source.m12() * f01 + source.m22() * f02;
-		float t03 = source.m03() * f00 + source.m13() * f01 + source.m23() * f02;
-		float t10 = source.m00() * f10 + source.m10() * f11 + source.m20() * f12;
-		float t11 = source.m01() * f10 + source.m11() * f11 + source.m21() * f12;
-		float t12 = source.m02() * f10 + source.m12() * f11 + source.m22() * f12;
+		float t00 = source.m00 * f00 + source.m10 * f01 + source.m20 * f02;
+		float t01 = source.m01 * f00 + source.m11 * f01 + source.m21 * f02;
+		float t02 = source.m02 * f00 + source.m12 * f01 + source.m22 * f02;
+		float t03 = source.m03 * f00 + source.m13 * f01 + source.m23 * f02;
+		float t10 = source.m00 * f10 + source.m10 * f11 + source.m20 * f12;
+		float t11 = source.m01 * f10 + source.m11 * f11 + source.m21 * f12;
+		float t12 = source.m02 * f10 + source.m12 * f11 + source.m22 * f12;
 		float t13 = source.m03 * f10 + source.m13 * f11 + source.m23 * f12;
 		dest.m20 = source.m00 * f20 + source.m10 * f21 + source.m20 * f22;
 		dest.m21 = source.m01 * f20 + source.m11 * f21 + source.m21 * f22;

@@ -232,18 +232,18 @@ public class ItemRegistry {
 			() -> new OverdriveItem(new Item.Properties().stacksTo(1), false));
 	public static final DeferredItem<OverdriveItem> ITEM_UPGRADE_BASE = ITEMS.register("upgrade_base",
 			() -> new OverdriveItem(new Item.Properties().stacksTo(16), false));
-		/*
-	public static final BulkRegister<Item> ITEM_UPGRADES = bulkItem(
-			upgrade -> ITEMS.register(((UpgradeType) upgrade).id(), () -> new ItemUpgrade((UpgradeType) upgrade)),
-			UpgradeType.values());
-
-	public static final BulkRegister<Item> WEAPON_MODULE_COLOR = bulkItem(
-			upgrade -> ITEMS.register(((UpgradeColor) upgrade).id(), () -> new ColorUpgrade((UpgradeColor) upgrade)),
-			UpgradeColor.values());
-	public static final BulkRegister<Item> WEAPON_MODULE_BARREL = bulkItem(
-			upgrade -> ITEMS.register(((UpgradeBarrel) upgrade).id(), () -> new BarrelUpgrade((UpgradeBarrel) upgrade)),
-			UpgradeBarrel.values());
-	*/
+		
+//	public static final BulkRegister<Item> ITEM_UPGRADES = bulkItem(
+//			upgrade -> ITEMS.register(((UpgradeType) upgrade).id(), () -> new ItemUpgrade((UpgradeType) upgrade)),
+//			UpgradeType.values());
+//
+//	public static final BulkRegister<Item> WEAPON_MODULE_COLOR = bulkItem(
+//			upgrade -> ITEMS.register(((UpgradeColor) upgrade).id(), () -> new ColorUpgrade((UpgradeColor) upgrade)),
+//			UpgradeColor.values());
+//	public static final BulkRegister<Item> WEAPON_MODULE_BARREL = bulkItem(
+//			upgrade -> ITEMS.register(((UpgradeBarrel) upgrade).id(), () -> new BarrelUpgrade((UpgradeBarrel) upgrade)),
+//			UpgradeBarrel.values());
+	
 	public static final DeferredItem<OverdriveItem> ITEM_TRITANIUM_PLATE = ITEMS.register("tritanium_plate",
 			() -> new OverdriveItem(new Item.Properties(), false));
 	public static final DeferredItem<ItemCommunicator> ITEM_COMMUNICATOR = ITEMS.register("communicator",
@@ -259,10 +259,10 @@ public class ItemRegistry {
 	public static final DeferredItem<OverdriveItem> ITEM_SPACETIME_EQUALIZER = ITEMS.register("spacetime_equalizer",
 			() -> new OverdriveItem(new Item.Properties().stacksTo(1), false));
 
-	/*private static BulkRegister<Item> bulkItem(Function<IBulkRegistryObject, DeferredItem<Item>> factory,
-			IBulkRegistryObject[] bulkValues) {
-		return new BulkRegister<>(factory, bulkValues);
-	}*/
+//	private static BulkRegister<Item> bulkItem(Function<IBulkRegistryObject, DeferredItem<Item>> factory,
+//			IBulkRegistryObject[] bulkValues) {
+//		return new BulkRegister<>(factory, bulkValues);
+//	}
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

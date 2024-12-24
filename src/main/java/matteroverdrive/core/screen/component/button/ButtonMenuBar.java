@@ -10,6 +10,8 @@ import matteroverdrive.core.screen.component.utils.AbstractOverdriveButton;
 import matteroverdrive.core.utils.UtilsRendering;
 import matteroverdrive.core.utils.UtilsText;
 import matteroverdrive.registry.SoundRegistry;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.client.sounds.SoundManager;
@@ -156,6 +158,18 @@ public class ButtonMenuBar extends AbstractOverdriveButton {
 	public void playDownSound(SoundManager pHandler) {
 		float pitch = MatterOverdrive.RANDOM.nextFloat(0.9F, 1.1F);
 		pHandler.play(SimpleSoundInstance.forUI(SoundRegistry.SOUND_BUTTON_EXPAND.get(), pitch));
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

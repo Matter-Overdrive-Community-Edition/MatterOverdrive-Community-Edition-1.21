@@ -17,7 +17,9 @@ import matteroverdrive.core.screen.component.utils.AbstractOverdriveButton;
 import matteroverdrive.core.screen.component.utils.ITexture;
 import matteroverdrive.core.screen.component.utils.OverdriveScreenComponent;
 import matteroverdrive.core.utils.UtilsRendering;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -27,6 +29,7 @@ import net.minecraft.world.inventory.Slot;
 public abstract class GenericScreen<T extends GenericInventory> extends AbstractContainerScreen<T> {
 
 	private List<OverdriveScreenComponent> components = new ArrayList<>();
+	protected ResourceLocation defaultResource = (ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/base/base_overdrive_with_menu.png"));
 	protected final GuiTextures background;
 
 	public GenericScreen(T menu, Inventory playerinventory, Component title, GuiTextures background, int guiWidth, int guiHeight) {
@@ -58,17 +61,43 @@ public abstract class GenericScreen<T extends GenericInventory> extends Abstract
 	}
 
 	@Override
-	public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks) {
-		this.renderBackground(matrixStack);
-		updateComponentActivity(getScreenNumber());
+	public void render(GuiGraphics matrixStack, int mouseX, int mouseY, float partialTicks) {
+		this.renderBackground(matrixStack, mouseX, mouseY, partialTicks);
 		super.render(matrixStack, mouseX, mouseY, partialTicks);
 		renderTooltip(matrixStack, mouseX, mouseY);
 	}
-
+	
+	/* TODO
 	@Override
-	protected void renderBg(PoseStack stack, float partialTick, int x, int y) {
+	protected void renderBg(GuiGraphics graphics, float partialTick, int mouseX, int mouseY) {
+		// RenderingUtils.bindTexture(defaultResource);
+		int guiWidth = (int) getGuiWidth();
+		int guiHeight = (int) getGuiHeight();
+
+		int y = guiHeight;
+
+		graphics.blit(defaultResource, guiWidth, y, 0, 0, 176, 4, 176, 18);
+
+		y += 4;
+
+		int wholeHeight = (imageHeight - 8) / 10;
+		int remainder = (imageHeight - 8) % 10;
+
+		for(int i = 0; i < wholeHeight; i++){
+			graphics.blit(defaultResource, guiWidth, y, 0, 4, 176, 10, 176, 18);
+			y += 10;
+		}
+
+		graphics.blit(defaultResource, guiWidth, y, 0, 4, 176, remainder, 176, 18);
+		y += remainder;
+
+		graphics.blit(defaultResource, guiWidth, y, 0, 14, 176, 4, 176, 18);
+	}
+	*/
+	@Override
+	protected void renderBg(GuiGraphics graphics, float partialTick, int x, int y) {
 		UtilsRendering.bindTexture(background.getTexture());
-		blit(stack, getXPos(), getYPos(), 0, 0, imageWidth, imageHeight);
+		graphics.blit(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/base/base_overdrive_with_menu.png"), getXPos(), getYPos(), 0, 0, imageWidth, imageHeight);
 	}
 
 	public int getXPos() {
@@ -80,7 +109,7 @@ public abstract class GenericScreen<T extends GenericInventory> extends Abstract
 	}
 
 	public Font getFontRenderer() {
-		return font;
+		return Minecraft.getInstance().font;
 	}
 
 	public int[] getAxisAndGuiWidth(int mouseX, int mouseY) {
@@ -132,9 +161,9 @@ public abstract class GenericScreen<T extends GenericInventory> extends Abstract
 	public abstract void setScreenParams();
 	
 	public static enum GuiTextures implements ITexture {
-		OVERDRIVE_MENU(new ResourceLocation(References.ID, "textures/gui/base/base_overdrive_with_menu.png"), 120, 76),
-		OVERDRIVE_NO_MENU(new ResourceLocation(References.ID, "textures/gui/base/base_overdrive_wo_menu.png"), 120, 76),
-		VANILLA(new ResourceLocation(References.ID, "textures/gui/base/base_vanilla.png"), 256, 256);
+		OVERDRIVE_MENU(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/base/base_overdrive_with_menu.png"), 120, 76),
+		OVERDRIVE_NO_MENU(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/base/base_overdrive_wo_menu.png"), 120, 76),
+		VANILLA(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/base/base_vanilla.png"), 256, 256);
 
 		private final ResourceLocation texture;
 		private final int imageWidth;

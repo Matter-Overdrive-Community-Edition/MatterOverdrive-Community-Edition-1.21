@@ -17,7 +17,6 @@ import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.RandomSource;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.neoforge.client.event.RegisterShadersEvent;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -26,9 +25,8 @@ import net.neoforged.fml.common.EventBusSubscriber;
 @EventBusSubscriber(modid = References.ID, bus = EventBusSubscriber.Bus.MOD, value = { Dist.CLIENT })
 public class MORenderTypes extends RenderType {
 
-	/* LOGGER INSTANCE & RANDOM SOURCE*/
+	/* LOGGER INSTANCE */
 	public static final Logger LOGGER = LoggerFactory.getLogger("Matter Overdrive: Shaders");
-	private static final RandomSource RANDOM_SOURCE = RandomSource.create();
 
 	/* SHADER INSTANCES */
 	private static ShaderInstance shaderGreaterAlpha;
@@ -39,13 +37,13 @@ public class MORenderTypes extends RenderType {
 	private static Uniform uniformAlphaCutoff;
 
 	/* TEXTURE RESOURCE LOCS */
-	private static final ResourceLocation ANDROID_TEXTURE = new ResourceLocation(References.ID, "textures/entity/android_colorless.png");
-	private static final ResourceLocation GLOW_TEXTURE = new ResourceLocation(References.ID,"textures/fx/hologram_beam.png");
+	private static final ResourceLocation ANDROID_TEXTURE = ResourceLocation.fromNamespaceAndPath(References.ID, "textures/entity/android_colorless.png");
+	private static final ResourceLocation GLOW_TEXTURE = ResourceLocation.fromNamespaceAndPath(References.ID,"textures/fx/hologram_beam.png");
 
 	/* SHADER RESOURCE LOCS */
-	private static final ResourceLocation BASE_STATION_LOC = new ResourceLocation(References.ID, "base_station");
-	private static final ResourceLocation ANDROID_STATION_LOC = new ResourceLocation(References.ID, "android_station");
-	private static final ResourceLocation GREATER_ALPHA_LOC = new ResourceLocation(References.ID, "greater_alpha");
+	private static final ResourceLocation BASE_STATION_LOC = ResourceLocation.fromNamespaceAndPath(References.ID, "base_station");
+	private static final ResourceLocation ANDROID_STATION_LOC = ResourceLocation.fromNamespaceAndPath(References.ID, "android_station");
+	private static final ResourceLocation GREATER_ALPHA_LOC = ResourceLocation.fromNamespaceAndPath(References.ID, "greater_alpha");
 
 	/* SHADER STATE SHARDS */
 
@@ -102,13 +100,13 @@ public class MORenderTypes extends RenderType {
 		try {
 			event.registerShader(new ShaderInstance(
 							event.getResourceProvider(),
-							new ResourceLocation(References.ID, "android_station_shader"),
+							ResourceLocation.fromNamespaceAndPath(References.ID, "android_station_shader"),
 							DefaultVertexFormat.NEW_ENTITY),
 							shader -> { androidShader = shader;}
 			);
 			event.registerShader(new ShaderInstance(
 							event.getResourceProvider(),
-							new ResourceLocation(References.ID, "render_station_shader"),
+							ResourceLocation.fromNamespaceAndPath(References.ID, "render_station_shader"),
 							DefaultVertexFormat.POSITION_TEX_COLOR),
 							shader -> { renderStationShader = shader;}
 			);

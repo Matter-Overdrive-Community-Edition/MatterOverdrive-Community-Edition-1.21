@@ -1,96 +1,76 @@
 package matteroverdrive.client.particle.replicator;
 
-import com.mojang.brigadier.StringReader;
-import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.serialization.Codec;
+import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
 
+import matteroverdrive.core.utils.CodecUtils;
 import matteroverdrive.registry.ParticleRegistry;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleType;
-import net.minecraft.network.FriendlyByteBuf;
-import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.codec.ByteBufCodecs;
 
 public class ParticleOptionReplicator extends ParticleType<ParticleOptionReplicator> implements ParticleOptions {
 
 	public float gravity;
 	public float scale;
-	public int age;
+	public int maxAge;
+	public int r;
+	public int g;
+	public int b;
+	public int a;
 
-	public static final Codec<ParticleOptionReplicator> CODEC = RecordCodecBuilder.create(instance -> {
-		return instance.group(Codec.FLOAT.fieldOf("gravity").forGetter(instance0 -> {
-			return instance0.gravity;
-		}), Codec.FLOAT.fieldOf("scale").forGetter(instance0 -> {
-			return instance0.scale;
-		}), Codec.INT.fieldOf("age").forGetter(instance0 -> {
-			return instance0.age;
-		})).apply(instance, (gravity, scale, age) -> new ParticleOptionReplicator().setGravity(gravity).setScale(scale)
-				.setAge(age));
-	});
+	public static final MapCodec<ParticleOptionReplicator> CODEC = RecordCodecBuilder.mapCodec(instance -> instance
+			.group(Codec.FLOAT.fieldOf("scale").forGetter(instance0 -> instance0.scale),
+					Codec.FLOAT.fieldOf("gravity").forGetter(instance0 -> instance0.gravity),
+					Codec.INT.fieldOf("maxage").forGetter(instance0 -> instance0.maxAge),
+					Codec.INT.fieldOf("r").forGetter(instance0 -> instance0.r),
+					Codec.INT.fieldOf("g").forGetter(instance0 -> instance0.g),
+					Codec.INT.fieldOf("b").forGetter(instance0 -> instance0.b),
+					Codec.INT.fieldOf("a").forGetter(instance0 -> instance0.a))
+			.apply(instance, (scale, gravity, age, r, g, b, a) -> new ParticleOptionReplicator().setParameters(scale,
+					gravity, age, r, g, b, a)));
 
-	public static final ParticleOptions.Deserializer<ParticleOptionReplicator> DESERIALIZER = new ParticleOptions.Deserializer<ParticleOptionReplicator>() {
-
-		@Override
-		public ParticleOptionReplicator fromCommand(ParticleType<ParticleOptionReplicator> type, StringReader reader)
-				throws CommandSyntaxException {
-			ParticleOptionReplicator replicator = new ParticleOptionReplicator();
-			reader.expect(' ');
-			float gravity = reader.readFloat();
-			reader.expect(' ');
-			float scale = reader.readFloat();
-			reader.expect(' ');
-			int age = reader.readInt();
-			return replicator.setGravity(gravity).setScale(scale).setAge(age);
-		}
-
-		@Override
-		public ParticleOptionReplicator fromNetwork(ParticleType<ParticleOptionReplicator> type,
-				FriendlyByteBuf buffer) {
-			return new ParticleOptionReplicator().setGravity(buffer.readFloat()).setScale(buffer.readFloat())
-					.setAge(buffer.readInt());
-		}
-	};
+	public static final StreamCodec<RegistryFriendlyByteBuf, ParticleOptionReplicator> STREAM_CODEC = CodecUtils
+			.composite(ByteBufCodecs.FLOAT, instance0 -> instance0.scale, ByteBufCodecs.FLOAT,
+					instance0 -> instance0.gravity, ByteBufCodecs.INT, instance0 -> instance0.maxAge, ByteBufCodecs.INT,
+					instance0 -> instance0.r, ByteBufCodecs.INT, instance0 -> instance0.g, ByteBufCodecs.INT,
+					instance0 -> instance0.b, ByteBufCodecs.INT, instance0 -> instance0.a, (scale, gravity, age, r, g,
+							b, a) -> new ParticleOptionReplicator().setParameters(scale, gravity, age, r, g, b, a));
 
 	public ParticleOptionReplicator() {
-		super(false, DESERIALIZER);
+		super(false);
 	}
 
-	public ParticleOptionReplicator setGravity(float gravity) {
-		this.gravity = gravity;
-		return this;
-	}
-
-	public ParticleOptionReplicator setAge(int age) {
-		this.age = age;
-		return this;
-	}
-
-	public ParticleOptionReplicator setScale(float scale) {
+	public ParticleOptionReplicator setParameters(float scale, float gravity, int maxAge, Integer r2, Integer g2,
+			Integer b2, Integer a2) {
 		this.scale = scale;
+		this.gravity = gravity;
+		this.maxAge = maxAge;
 		return this;
 	}
 
 	@Override
-	public ParticleType<ParticleOptionReplicator> getType() {
+	public ParticleType<?> getType() {
 		return ParticleRegistry.PARTICLE_REPLICATOR.get();
 	}
 
 	@Override
-	public void writeToNetwork(FriendlyByteBuf buffer) {
-		buffer.writeFloat(gravity);
-		buffer.writeFloat(scale);
-		buffer.writeInt(age);
+	public String toString() {
+		return BuiltInRegistries.PARTICLE_TYPE.getKey(getType()).toString() + ", scale: " + scale + ", gravity: "
+				+ gravity + ", maxage: " + maxAge + ", r: " + r + ", g: " + g + ", b: " + b + ", a: " + a;
 	}
 
 	@Override
-	public String writeToString() {
-		return NeoForgeRegistries.PARTICLE_TYPES.getKey(getType()).toString() + ", gravity: " + gravity + ", scale: "
-				+ scale + ", age: " + age;
-	}
-
-	@Override
-	public Codec<ParticleOptionReplicator> codec() {
+	public MapCodec<ParticleOptionReplicator> codec() {
 		return CODEC;
 	}
 
+	@Override
+	public StreamCodec<? super RegistryFriendlyByteBuf, ParticleOptionReplicator> streamCodec() {
+		return STREAM_CODEC;
+	}
 }

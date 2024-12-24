@@ -2,9 +2,12 @@ package matteroverdrive.core.tools;
 
 import matteroverdrive.registry.ItemRegistry;
 import java.util.function.Supplier;
+
+import net.minecraft.tags.TagKey;
 import net.minecraft.util.LazyLoadedValue;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Block;
 
 public enum MOToolTiers implements Tier {
 	TRITANIUM(2, 3122, 6.0F, 2.0F, 14, () -> {
@@ -44,11 +47,6 @@ public enum MOToolTiers implements Tier {
 	}
 
 	@Override
-	public int getLevel() {
-		return this.level;
-	}
-
-	@Override
 	public int getEnchantmentValue() {
 		return this.enchantmentValue;
 	}
@@ -56,5 +54,11 @@ public enum MOToolTiers implements Tier {
 	@Override
 	public Ingredient getRepairIngredient() {
 		return this.repairIngredient.get();
+	}
+
+	@Override
+	public TagKey<Block> getIncorrectBlocksForDrops() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

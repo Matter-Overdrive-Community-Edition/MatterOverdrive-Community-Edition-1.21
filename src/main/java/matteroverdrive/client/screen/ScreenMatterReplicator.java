@@ -19,6 +19,7 @@ import matteroverdrive.core.screen.component.wrappers.WrapperIOConfig;
 import matteroverdrive.core.screen.component.wrappers.WrapperMatterReplicatorOrders;
 import matteroverdrive.core.screen.types.GenericMachineScreen;
 import matteroverdrive.core.utils.UtilsText;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
@@ -235,7 +236,7 @@ public class ScreenMatterReplicator extends GenericMachineScreen<InventoryMatter
 			addButton(button);
 		}
 
-		queued.initButtons(itemRenderer);
+	//	queued.initButtons(itemRenderer);
 
 		redstone.visible = false;
 		items.visible = false;
@@ -248,7 +249,7 @@ public class ScreenMatterReplicator extends GenericMachineScreen<InventoryMatter
 
 		addScreenComponent(defaultEnergyBar(167, 35, new int[] { 0 }));
 		addScreenComponent(defaultRecipeMatterBar(133, 35, new int[] { 0 }));
-		addScreenComponent(new ScreenComponentPatternHolder(this, 5, 45, new int[] { 0 }, itemRenderer));
+		//addScreenComponent(new ScreenComponentPatternHolder(this, 5, 45, new int[] { 0 }, itemRenderer));
 		addScreenComponent(getRunningIndicator(6, 159, new int[] { 0, 1, 2, 3, 4 }));
 		addScreenComponent(new ScreenComponentHotbarBar(this, 40, 143, 169, new int[] { 0, 1, 2, 3 }));
 		addScreenComponent(new ScreenComponentLabel(this, 110, 37, new int[] { 1 }, UtilsText.gui("redstone"),
@@ -269,7 +270,7 @@ public class ScreenMatterReplicator extends GenericMachineScreen<InventoryMatter
 	private void toggleBarOpen() {
 		EXTENDED = !EXTENDED;
 	}
-
+/*
 	@Override
 	public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
 		if (queued != null && screenNumber == 4) {
@@ -283,7 +284,7 @@ public class ScreenMatterReplicator extends GenericMachineScreen<InventoryMatter
 		}
 		return super.mouseScrolled(mouseX, mouseY, delta);
 	}
-
+*/
 	@Override
 	public void mouseMoved(double mouseX, double mouseY) {
 		super.mouseMoved(mouseX, mouseY);
@@ -306,6 +307,12 @@ public class ScreenMatterReplicator extends GenericMachineScreen<InventoryMatter
 			slider.mouseReleased(mouseX, mouseY, button);
 		}
 		return super.mouseReleased(mouseX, mouseY, button);
+	}
+
+	@Override
+	protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

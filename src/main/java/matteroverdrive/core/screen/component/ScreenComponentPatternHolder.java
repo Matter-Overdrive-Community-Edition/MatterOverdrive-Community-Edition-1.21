@@ -14,6 +14,8 @@ import matteroverdrive.core.screen.component.utils.OverdriveScreenComponent;
 import matteroverdrive.core.utils.UtilsRendering;
 import matteroverdrive.core.utils.UtilsText;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
@@ -111,6 +113,18 @@ public class ScreenComponentPatternHolder extends OverdriveScreenComponent {
 
 	protected boolean isPointInRegion(int mouseX, int mouseY) {
 		return mouseX >= this.x && mouseY >= this.y && mouseX < this.x + 22 && mouseY < this.y + 22;
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

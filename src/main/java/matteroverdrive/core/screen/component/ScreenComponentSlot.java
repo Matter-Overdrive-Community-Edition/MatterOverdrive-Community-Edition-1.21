@@ -13,6 +13,8 @@ import matteroverdrive.core.screen.component.utils.ITexture;
 import matteroverdrive.core.screen.component.utils.OverdriveScreenComponent;
 import matteroverdrive.core.utils.UtilsRendering;
 import matteroverdrive.registry.ItemRegistry;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
@@ -110,7 +112,7 @@ public class ScreenComponentSlot extends OverdriveScreenComponent {
 			this.height = height;
 			this.textureX = textureX;
 			this.textureY = textureY;
-			this.name = new ResourceLocation(References.ID, BASE_TEXTURE_LOC + name + ".png");
+			this.name = ResourceLocation.fromNamespaceAndPath(References.ID, BASE_TEXTURE_LOC + name + ".png");
 			this.xOffset = xOffset;
 			this.yOffset = yOffset;
 		}
@@ -158,6 +160,18 @@ public class ScreenComponentSlot extends OverdriveScreenComponent {
 			return yOffset;
 		}
 
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

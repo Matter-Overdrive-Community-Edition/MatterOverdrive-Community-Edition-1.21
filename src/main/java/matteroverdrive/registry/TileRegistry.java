@@ -1,6 +1,5 @@
 package matteroverdrive.registry;
 
-import com.google.common.collect.Sets;
 import matteroverdrive.common.tile.*;
 
 import matteroverdrive.References;
@@ -16,85 +15,79 @@ import matteroverdrive.common.tile.transporter.TileTransporter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 public class TileRegistry {
 	public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(Registries.BLOCK_ENTITY_TYPE, References.ID);
-
-
-	/*public static final RegistryObject<BlockEntityType<TileTritaniumCrate>> TILE_TRITANIUM_CRATE = TILES.register(
-			"tritanium_crate",
-			() -> new BlockEntityType<>(TileTritaniumCrate::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_TRITANIUM_CRATES.<Block>getObjectsAsArray(new Block[0])),
-					null));
-	*/
-	
-	
-	
-	public static final DeferredHolder<BlockEntityType<?>,BlockEntityType<TileSolarPanel>> TILE_SOLAR_PANEL = BLOCK_ENTITY_TYPES.register((TypeMachine.SOLAR_PANEL.id()), () -> new BlockEntityType<>(TileSolarPanel::new, Sets.newHashSet(BlockRegistry.BLOCK_SOLAR_PANEL.getValue()), null));
-	
-	public static final RegistryObject<BlockEntityType<TileSolarPanel>> TILE_SOLAR_PANEL_old = TILES
-			.register(TypeMachine.SOLAR_PANEL.id(), () -> new BlockEntityType<>(TileSolarPanel::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_SOLAR_PANEL.get()), null));
-	public static final RegistryObject<BlockEntityType<TileMatterDecomposer>> TILE_MATTER_DECOMPOSER = TILES
-			.register(TypeMachine.MATTER_DECOMPOSER.id(), () -> new BlockEntityType<>(TileMatterDecomposer::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_MATTER_DECOMPOSER.get()), null));
-	public static final RegistryObject<BlockEntityType<TileMatterRecycler>> TILE_MATTER_RECYCLER = TILES
-			.register(TypeMachine.MATTER_RECYCLER.id(), () -> new BlockEntityType<>(TileMatterRecycler::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_MATTER_RECYCLER.get()), null));
-	public static final RegistryObject<BlockEntityType<TileCharger>> TILE_CHARGER = TILES.register(
-			TypeMachine.CHARGER.id(),
-			() -> new BlockEntityType<>(TileCharger::new, Sets.newHashSet(BlockRegistry.BLOCK_CHARGER.get()), null));
-	public static final RegistryObject<BlockEntityType<TileMicrowave>> TILE_MICROWAVE = TILES
-			.register(TypeMachine.MICROWAVE.id(), () -> new BlockEntityType<>(TileMicrowave::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_MICROWAVE.get()), null));
-	public static final RegistryObject<BlockEntityType<TileInscriber>> TILE_INSCRIBER = TILES
-			.register(TypeMachine.INSCRIBER.id(), () -> new BlockEntityType<>(TileInscriber::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_INSCRIBER.get()), null));
-	public static final RegistryObject<BlockEntityType<TileMatterConduit>> TILE_MATTER_CONDUIT = TILES
-			.register("matter_conduit", () -> new BlockEntityType<>(TileMatterConduit::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_MATTER_CONDUITS.getObjectsAsArray(new Block[0])), null));
-	public static final RegistryObject<BlockEntityType<TileTransporter>> TILE_TRANSPORTER = TILES
-			.register(TypeMachine.TRANSPORTER.id(), () -> new BlockEntityType<>(TileTransporter::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_TRANSPORTER.get()), null));
-	public static final RegistryObject<BlockEntityType<TileSpacetimeAccelerator>> TILE_SPACETIME_ACCELERATOR = TILES
-			.register(TypeMachine.SPACETIME_ACCELERATOR.id(), () -> new BlockEntityType<>(TileSpacetimeAccelerator::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_SPACETIME_ACCELERATOR.get()), null));
-	public static final RegistryObject<BlockEntityType<TileMatterNetworkCable>> TILE_MATTER_NETWORK_CABLE = TILES
-			.register("network_cable", () -> new BlockEntityType<>(TileMatterNetworkCable::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_MATTER_NETWORK_CABLES.getObjectsAsArray(new Block[0])), null));
-	public static final RegistryObject<BlockEntityType<TileChunkloader>> TILE_CHUNKLOADER = TILES
-			.register(TypeMachine.CHUNKLOADER.id(), () -> new BlockEntityType<>(TileChunkloader::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_CHUNKLOADER.get()), null));
-	public static final RegistryObject<BlockEntityType<TileMatterAnalyzer>> TILE_MATTER_ANALYZER = TILES
-			.register(TypeMachine.MATTER_ANALYZER.id(), () -> new BlockEntityType<>(TileMatterAnalyzer::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_MATTER_ANALYZER.get()), null));
-	public static final RegistryObject<BlockEntityType<TilePatternStorage>> TILE_PATTERN_STORAGE = TILES
-			.register(TypeMachine.PATTERN_STORAGE.id(), () -> new BlockEntityType<>(TilePatternStorage::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_PATTERN_STORAGE.get()), null));
-	public static final RegistryObject<BlockEntityType<TilePatternMonitor>> TILE_PATTERN_MONITOR = TILES
-			.register(TypeMachine.PATTERN_MONITOR.id(), () -> new BlockEntityType<>(TilePatternMonitor::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_PATTERN_MONITOR.get()), null));
-	public static final RegistryObject<BlockEntityType<TileHoloSign>> TILE_HOLO_SIGN = TILES
-			.register(TypeMachine.HOLO_SIGN.id(), () -> new BlockEntityType<>(TileHoloSign::new, 
-					Sets.newHashSet(BlockRegistry.BLOCK_HOLO_SIGN.get()), null));
-	public static final RegistryObject<BlockEntityType<TileMatterReplicator>> TILE_MATTER_REPLICATOR = TILES
-			.register(TypeMachine.MATTER_REPLICATOR.id(), () -> new BlockEntityType<>(TileMatterReplicator::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_MATTER_REPLICATOR.get()), null));
-	public static final RegistryObject<BlockEntityType<TileAndroidStation>> TILE_ANDROID_STATION = TILES
-			.register(TypeMachine.ANDROID_STATION.id(), () -> new BlockEntityType<>(TileAndroidStation::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_ANDROID_STATION.get()), null));
-	public static final RegistryObject<BlockEntityType<TileDiscManipulator>> TILE_DISC_MANIPULATOR = TILES
-			.register(TypeMachine.DISC_MANIPULATOR.id(), () -> new BlockEntityType<>(TileDiscManipulator::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_DISC_MANIPULATOR.get()), null));
-	public static final RegistryObject<BlockEntityType<TileStarMap>> TILE_STAR_MAP = TILES.register(
-			TypeMachine.STAR_MAP.id(),
-			() -> new BlockEntityType<>(TileStarMap::new, Sets.newHashSet(BlockRegistry.BLOCK_STAR_MAP.get()), null));
-	public static final RegistryObject<BlockEntityType<TileWeaponStation>> TILE_WEAPON_STATION = TILES
-			.register(TypeMachine.WEAPON_STATION.id(), () -> new BlockEntityType<>(TileWeaponStation::new,
-					Sets.newHashSet(BlockRegistry.BLOCK_WEAPON_STATION.get()), null));
-//	public static final RegistryObject<BlockEntityType<TileSpacetimeEqualizer>> TILE_SPACETIME_EQUALIZER = TILES
-//		.register(TypeMachine.SPACETIME_EQUALIZER.id(), () -> new ItemEntityType<>(TileSpacetimeEqualizer::new, Sets.newHashSet(ItemRegistry.ITEM_SPACETIME_EQUALIZER.get()), null));
+/*
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileTritaniumCrate>> TILE_TRITANIUM_CRATE = BLOCK_ENTITY_TYPES
+    		.register("tritanium_crate", () -> BlockEntityType.Builder.of(TileTritaniumCrate::new, 
+    				BlockRegistry.BLOCK_TRITANIUM_CRATES.getObjectsAsArray(new Block[0])).build(null));	
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileSolarPanel>> TILE_SOLAR_PANEL = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.SOLAR_PANEL.id(), () -> BlockEntityType.Builder.of(TileSolarPanel::new, 
+    				BlockRegistry.BLOCK_SOLAR_PANEL.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileMatterDecomposer>> TILE_MATTER_DECOMPOSER = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.MATTER_DECOMPOSER.id(), () -> BlockEntityType.Builder.of(TileMatterDecomposer::new, 
+    				BlockRegistry.BLOCK_MATTER_DECOMPOSER.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileMatterRecycler>> TILE_MATTER_RECYCLER = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.MATTER_RECYCLER.id(), () -> BlockEntityType.Builder.of(TileMatterRecycler::new, 
+    				BlockRegistry.BLOCK_MATTER_RECYCLER.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileCharger>> TILE_CHARGER = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.CHARGER.id(), () -> BlockEntityType.Builder.of(TileCharger::new, 
+    				BlockRegistry.BLOCK_CHARGER.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileMicrowave>> TILE_MICROWAVE = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.MICROWAVE.id(), () -> BlockEntityType.Builder.of(TileMicrowave::new, 
+    				BlockRegistry.BLOCK_MICROWAVE.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileInscriber>> TILE_INSCRIBER = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.INSCRIBER.id(), () -> BlockEntityType.Builder.of(TileInscriber::new, 
+    				BlockRegistry.BLOCK_INSCRIBER.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileMatterConduit>> TILE_MATTER_CONDUIT = BLOCK_ENTITY_TYPES
+    		.register("matter_conduit", () -> BlockEntityType.Builder.of(TileMatterConduit::new, 
+    				BlockRegistry.BLOCK_MATTER_CONDUITS.getObjectsAsArray(new Block[0])).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileTransporter>> TILE_TRANSPORTER = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.TRANSPORTER.id(), () -> BlockEntityType.Builder.of(TileTransporter::new, 
+    				BlockRegistry.BLOCK_TRANSPORTER.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileSpacetimeAccelerator>> TILE_SPACETIME_ACCELERATOR = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.SPACETIME_ACCELERATOR.id(), () -> BlockEntityType.Builder.of(TileSpacetimeAccelerator::new, 
+    				BlockRegistry.BLOCK_SPACETIME_ACCELERATOR.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileMatterNetworkCable>> TILE_MATTER_NETWORK_CABLE = BLOCK_ENTITY_TYPES
+    		.register("network_cable", () -> BlockEntityType.Builder.of(TileMatterNetworkCable::new, 
+    				BlockRegistry.BLOCK_MATTER_NETWORK_CABLES.getObjectsAsArray(new Block[0])).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileChunkloader>> TILE_CHUNKLOADER = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.CHUNKLOADER.id(), () -> BlockEntityType.Builder.of(TileChunkloader::new, 
+    				BlockRegistry.BLOCK_CHUNKLOADER.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileMatterAnalyzer>> TILE_MATTER_ANALYZER = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.MATTER_ANALYZER.id(), () -> BlockEntityType.Builder.of(TileMatterAnalyzer::new, 
+    				BlockRegistry.BLOCK_MATTER_ANALYZER.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TilePatternStorage>> TILE_PATTERN_STORAGE = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.PATTERN_STORAGE.id(), () -> BlockEntityType.Builder.of(TilePatternStorage::new, 
+    				BlockRegistry.BLOCK_PATTERN_STORAGE.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TilePatternMonitor>> TILE_PATTERN_MONITOR = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.PATTERN_MONITOR.id(), () -> BlockEntityType.Builder.of(TilePatternMonitor::new, 
+    				BlockRegistry.BLOCK_PATTERN_MONITOR.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileHoloSign>> TILE_HOLO_SIGN = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.HOLO_SIGN.id(), () -> BlockEntityType.Builder.of(TileHoloSign::new, 
+    				BlockRegistry.BLOCK_HOLO_SIGN.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileMatterReplicator>> TILE_MATTER_REPLICATOR = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.MATTER_REPLICATOR.id(), () -> BlockEntityType.Builder.of(TileMatterReplicator::new, 
+    				BlockRegistry.BLOCK_MATTER_REPLICATOR.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileAndroidStation>> TILE_ANDROID_STATION = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.ANDROID_STATION.id(), () -> BlockEntityType.Builder.of(TileAndroidStation::new, 
+    				BlockRegistry.BLOCK_ANDROID_STATION.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileDiscManipulator>> TILE_DISC_MANIPULATOR = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.DISC_MANIPULATOR.id(), () -> BlockEntityType.Builder.of(TileDiscManipulator::new, 
+    				BlockRegistry.BLOCK_DISC_MANIPULATOR.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileStarMap>> TILE_STAR_MAP = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.STAR_MAP.id(), () -> BlockEntityType.Builder.of(TileStarMap::new, 
+    				BlockRegistry.BLOCK_STAR_MAP.get()).build(null));
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileWeaponStation>> TILE_WEAPON_STATION = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.WEAPON_STATION.id(), () -> BlockEntityType.Builder.of(TileWeaponStation::new, 
+    				BlockRegistry.BLOCK_WEAPON_STATION.get()).build(null));
+   
+     Not Done.
+    public static final DeferredHolder<BlockEntityType<?>, BlockEntityType<TileSpacetimeEqualizer>> TILE_SPACETIME_EQUALIZER = BLOCK_ENTITY_TYPES
+    		.register(TypeMachine.SPACETIME_EQUALIZER.id(), () -> BlockEntityType.Builder.of(TileSpacetimeEqualizer::new, 
+    				ItemRegistry.ITEM_SPACETIME_EQUALIZER.get()).build(null));
+*/
 }

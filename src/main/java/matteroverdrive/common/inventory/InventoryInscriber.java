@@ -34,8 +34,9 @@ public class InventoryInscriber extends GenericInventoryTile<TileInscriber> {
 
 	@Override
 	public void addInvSlots(CapabilityInventory invcap, Inventory playerinv) {
-		addSlot(new SlotRestricted(invcap, nextIndex(), 8, 48, new int[] { 0 }, SlotType.MAIN, IconType.NONE,
-				ItemRegistry.ITEM_ISOLINEAR_CIRCUITS.getObjectsAsArray(new Item[0])));
+//		addSlot(new SlotRestricted(invcap, nextIndex(), 8, 48, new int[] { 0 }, SlotType.MAIN, IconType.NONE,
+//				ItemRegistry.ITEM_ISOLINEAR_CIRCUITS.getObjectsAsArray(new Item[0])));
+		addSlot(new SlotRestricted(invcap, nextIndex(), 8, 48, new int[] { 0 }, SlotType.MAIN, IconType.NONE));
 		addSlot(new SlotGeneric(invcap, nextIndex(), 8, 75, new int[] { 0 }, SlotType.BIG, IconType.NONE));
 		addSlot(new SlotRestricted(invcap, nextIndex(), 67, 48, new int[] { 0 }, SlotType.BIG, IconType.NONE));
 		addSlot(new SlotEnergyCharging(invcap, nextIndex(), 8, 102, new int[] { 0 }));

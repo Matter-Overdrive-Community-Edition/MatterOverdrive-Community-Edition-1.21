@@ -6,6 +6,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import matteroverdrive.core.screen.GenericScreen;
 import matteroverdrive.core.screen.component.utils.OverdriveScreenComponent;
 import matteroverdrive.core.utils.UtilsRendering;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.renderer.GameRenderer;
 
 public class ScreenComponentFillArea extends OverdriveScreenComponent {
@@ -25,6 +27,18 @@ public class ScreenComponentFillArea extends OverdriveScreenComponent {
 		UtilsRendering.setShaderColor(color);
 		blit(stack, this.x, this.y, 0, 0, this.width, this.height);
 		UtilsRendering.resetShaderColor();
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

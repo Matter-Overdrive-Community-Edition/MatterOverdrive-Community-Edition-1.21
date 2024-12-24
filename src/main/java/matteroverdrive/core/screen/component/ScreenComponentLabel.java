@@ -7,6 +7,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import matteroverdrive.core.screen.GenericScreen;
 import matteroverdrive.core.screen.component.utils.OverdriveScreenComponent;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
 
 public class ScreenComponentLabel extends OverdriveScreenComponent {
@@ -30,6 +32,18 @@ public class ScreenComponentLabel extends OverdriveScreenComponent {
 	public void renderBackground(PoseStack stack, int mouseX, int mouseY, float partialTicks) {
 		Font font = gui.getFontRenderer();
 		font.draw(stack, component.get(), this.x, this.y, fontColor);
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

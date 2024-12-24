@@ -220,7 +220,6 @@ public class BlockAndroidChargerChild extends BlockOverdrive {
 		return true;
 	}
 
-	@Override
 	public InteractionResult use(BlockState state, Level world, BlockPos pos, Player player, InteractionHand hand,
 			BlockHitResult hit) {
 		ChargerBlockPos loc = state.getValue(OverdriveBlockStates.CHARGER_POS);
@@ -230,11 +229,11 @@ public class BlockAndroidChargerChild extends BlockOverdrive {
 		case TOP:
 			newPos = pos.offset(0, -2, 0);
 			parent = world.getBlockState(newPos);
-			return parent.getBlock().use(state, world, newPos, player, hand, hit);
+			return ((BlockAndroidChargerChild) parent.getBlock()).use(state, world, newPos, player, hand, hit);
 		case MIDDLE:
 			newPos = pos.offset(0, -1, 0);
 			parent = world.getBlockState(newPos);
-			return parent.getBlock().use(state, world, newPos, player, hand, hit);
+			return ((BlockAndroidChargerChild) parent.getBlock()).use(state, world, newPos, player, hand, hit);
 		default:
 			return super.use(state, world, pos, player, hand, hit);
 		}
@@ -249,11 +248,11 @@ public class BlockAndroidChargerChild extends BlockOverdrive {
 		case TOP:
 			newPos = pos.offset(0, -2, 0);
 			parent = world.getBlockState(newPos);
-			return parent.getBlock().getDirectSignal(state, world, newPos, side);
+			//return parent.getBlock().getDirectSignal(state, world, newPos, side);
 		case MIDDLE:
 			newPos = pos.offset(0, -1, 0);
 			parent = world.getBlockState(newPos);
-			return parent.getBlock().getDirectSignal(state, world, newPos, side);
+			//return parent.getBlock().getDirectSignal(state, world, newPos, side);
 		default:
 			return super.getDirectSignal(state, world, pos, side);
 		}
@@ -268,11 +267,11 @@ public class BlockAndroidChargerChild extends BlockOverdrive {
 		case TOP:
 			newPos = pos.offset(0, -2, 0);
 			parent = world.getBlockState(newPos);
-			return parent.getBlock().getSignal(state, world, newPos, side);
+		//	return parent.getBlock().getSignal(state, world, newPos, side);
 		case MIDDLE:
 			newPos = pos.offset(0, -1, 0);
 			parent = world.getBlockState(newPos);
-			return parent.getBlock().getSignal(state, world, newPos, side);
+		//	return parent.getBlock().getSignal(state, world, newPos, side);
 		default:
 			return super.getSignal(state, world, pos, side);
 		}

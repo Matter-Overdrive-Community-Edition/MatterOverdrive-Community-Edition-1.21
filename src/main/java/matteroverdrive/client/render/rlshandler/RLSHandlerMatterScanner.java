@@ -2,12 +2,11 @@ package matteroverdrive.client.render.rlshandler;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Matrix3f;
-import com.mojang.math.Matrix4f;
-import com.mojang.math.Quaternion;
-import com.mojang.math.Vector3f;
-
-import matteroverdrive.client.ClientReferences.AtlasTextures;
+//import com.mojang.math.Quaternion;
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
+import org.joml.Vector3f;
+//import matteroverdrive.client.ClientReferences.AtlasTextures;
 import matteroverdrive.client.ClientReferences.Colors;
 import matteroverdrive.client.ClientRegister;
 import matteroverdrive.client.render.shaders.MORenderTypes;
@@ -37,7 +36,8 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult.Type;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.client.event.RenderLevelStageEvent.Stage;
+//import net.minecraftforge.client.event.RenderLevelStageEvent.Stage;
+import net.neoforged.neoforge.client.event.RenderLevelStageEvent.Stage;
 
 public class RLSHandlerMatterScanner extends AbstractRenderLevelStageHandler {
 
@@ -85,8 +85,8 @@ public class RLSHandlerMatterScanner extends AbstractRenderLevelStageHandler {
 			int[] shift = moveMatrixForText(matrix, traceDir, player.getDirection(), font.width(text), 1.5D, 15.0D,
 					0.5);
 
-			font.drawInBatch(text, shift[0], shift[1], Colors.HOLO.getColor(), false, matrix.last().pose(), buffer,
-					true, 0, 255);
+		//	font.drawInBatch(text, shift[0], shift[1], Colors.HOLO.getColor(), false, matrix.last().pose(), buffer,
+			//		true, 0, 255);
 
 			matrix.popPose();
 
@@ -102,8 +102,8 @@ public class RLSHandlerMatterScanner extends AbstractRenderLevelStageHandler {
 
 			shift = moveMatrixForText(matrix, traceDir, player.getDirection(), font.width(text), 3.5D, 13.0D, 0.75);
 
-			font.drawInBatch(text, shift[0], shift[1], Colors.HOLO.getColor(), false, matrix.last().pose(), buffer,
-					true, 0, 255);
+		//	font.drawInBatch(text, shift[0], shift[1], Colors.HOLO.getColor(), false, matrix.last().pose(), buffer,
+			//		true, 0, 255);
 
 			matrix.popPose();
 
@@ -119,8 +119,8 @@ public class RLSHandlerMatterScanner extends AbstractRenderLevelStageHandler {
 
 			
 			
-			font.drawInBatch(text, shift[0], shift[1], Colors.HOLO.getColor(), false, matrix.last().pose(), buffer,
-					true, 0, 255);
+		//	font.drawInBatch(text, shift[0], shift[1], Colors.HOLO.getColor(), false, matrix.last().pose(), buffer,
+		//			true, 0, 255);
 
 			matrix.popPose();
 
@@ -131,7 +131,7 @@ public class RLSHandlerMatterScanner extends AbstractRenderLevelStageHandler {
 			translateToPos(matrix, pos, cam);
 
 			rotateMatrixForScanner(matrix, player.getDirection(), traceDir);
-
+/*
 			TextureAtlasSprite holoGrid = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_GRID);
 			float[] holo_uv = { holoGrid.getU0(), holoGrid.getU1(), holoGrid.getV0(), holoGrid.getV1() };
 			float[] holo_color = Colors.HOLO.getFloatArrModAlpha(0.2F);
@@ -169,7 +169,7 @@ public class RLSHandlerMatterScanner extends AbstractRenderLevelStageHandler {
 				break;
 			case WEST:
 				UtilsRendering.renderWestOfBox(builder, SPINNER_COORDS[5], spinner_color, spinner_uv, matrix4f,
-						matrix3f, 255, OverlayTexture.NO_OVERLAY);
+					matrix3f, 255, OverlayTexture.NO_OVERLAY);
 				break;
 			}
 
@@ -207,7 +207,7 @@ public class RLSHandlerMatterScanner extends AbstractRenderLevelStageHandler {
 			buffer.endBatch(Sheets.translucentCullBlockSheet());
 
 			matrix.popPose();
-
+*/	
 		}
 
 	}
@@ -221,40 +221,40 @@ public class RLSHandlerMatterScanner extends AbstractRenderLevelStageHandler {
 			matrix.translate(0, 0, 1.001);
 			break;
 		case NORTH:
-			matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 180.0F, true));
+		//	matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 180.0F, true));
 			matrix.translate(-1.0, 0, 0.001);
 			break;
 		case WEST:
-			matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 270.0F, true));
+		//	matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 270.0F, true));
 			matrix.translate(0, 0, 0.001);
 			break;
 		case EAST:
-			matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 90.0F, true));
+		//	matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 90.0F, true));
 			matrix.translate(-1, 0, 1.001);
 			break;
 		default:
 			if (traceDir == Direction.UP || traceDir == Direction.DOWN) {
 				switch (playerDir) {
 				case SOUTH:
-					matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 180.0F, true));
+			//		matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 180.0F, true));
 					matrix.translate(-1, 0, -1);
 					break;
 				case EAST:
-					matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 270.0F, true));
+			//		matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 270.0F, true));
 					matrix.translate(0, 0, -1);
 					break;
 				case WEST:
-					matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 90.0F, true));
+			//		matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 90.0F, true));
 					matrix.translate(-1, 0, 0);
 					break;
 				default:
 					break;
 				}
 				if (traceDir == Direction.UP) {
-					matrix.mulPose(new Quaternion(new Vector3f(1, 0, 0), -90.0F, true));
+			//		matrix.mulPose(new Quaternion(new Vector3f(1, 0, 0), -90.0F, true));
 					matrix.translate(0, 0, 1.001);
 				} else {
-					matrix.mulPose(new Quaternion(new Vector3f(1, 0, 0), 90.0F, true));
+			//		matrix.mulPose(new Quaternion(new Vector3f(1, 0, 0), 90.0F, true));
 					matrix.translate(0, 0, 0.001);
 				}
 
@@ -310,14 +310,14 @@ public class RLSHandlerMatterScanner extends AbstractRenderLevelStageHandler {
 			held = true;
 			on = scanner.isOn(stack);
 			inUse = scanner.isHeld(stack);
-			perc = stack.getOrCreateTag().getInt(UtilsNbt.PERCENTAGE);
+			//perc = stack.getOrCreateTag().getInt(UtilsNbt.PERCENTAGE);
 		} else {
 			stack = player.getItemInHand(InteractionHand.OFF_HAND);
 			if (stack.getItem() instanceof ItemMatterScanner scanner) {
 				held = true;
 				on = scanner.isOn(stack);
 				inUse = scanner.isHeld(stack);
-				perc = stack.getOrCreateTag().getInt(UtilsNbt.PERCENTAGE);
+			//	perc = stack.getOrCreateTag().getInt(UtilsNbt.PERCENTAGE);
 			}
 		}
 		return new ScannerDataWrapper(held, on, inUse, perc, stack);
@@ -327,15 +327,15 @@ public class RLSHandlerMatterScanner extends AbstractRenderLevelStageHandler {
 		if (traceDir == Direction.UP) {
 			switch (playerDir) {
 			case SOUTH:
-				matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 180.0F, true));
+				//matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 180.0F, true));
 				matrix.translate(-1, 0, -1);
 				break;
 			case EAST:
-				matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 270.0F, true));
+				//matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 270.0F, true));
 				matrix.translate(0, 0, -1);
 				break;
 			case WEST:
-				matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 90.0F, true));
+				//matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 90.0F, true));
 				matrix.translate(-1, 0, 0);
 				break;
 			default:
@@ -344,15 +344,15 @@ public class RLSHandlerMatterScanner extends AbstractRenderLevelStageHandler {
 		} else if (traceDir == Direction.DOWN) {
 			switch (playerDir) {
 			case NORTH:
-				matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 180.0F, true));
+			//	matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 180.0F, true));
 				matrix.translate(-1, 0, -1);
 				break;
 			case WEST:
-				matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 270.0F, true));
+			//	matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 270.0F, true));
 				matrix.translate(0, 0, -1);
 				break;
 			case EAST:
-				matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 90.0F, true));
+			//	matrix.mulPose(new Quaternion(new Vector3f(0, 1, 0), 90.0F, true));
 				matrix.translate(-1, 0, 0);
 				break;
 			default:

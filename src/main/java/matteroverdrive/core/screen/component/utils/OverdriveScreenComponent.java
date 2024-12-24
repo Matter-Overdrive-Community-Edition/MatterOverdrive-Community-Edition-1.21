@@ -48,7 +48,6 @@ public abstract class OverdriveScreenComponent extends AbstractWidget {
 		this.y += gui.getYPos();
 	}
 
-	@Override
 	public final void render(PoseStack stack, int mouseX, int mouseY, float partialTicks) {
 		if (this.visible) {
 
@@ -75,15 +74,12 @@ public abstract class OverdriveScreenComponent extends AbstractWidget {
 
 	}
 
-	@Override
 	public final void renderButton(PoseStack pPoseStack, int pMouseX, int pMouseY, float pPartialTick) {
 	}
 
-	@Override
 	protected final void renderBg(PoseStack pPoseStack, Minecraft pMinecraft, int pMouseX, int pMouseY) {
 	}
 
-	@Override
 	public final void renderToolTip(PoseStack pPoseStack, int pMouseX, int pMouseY) {
 
 	}
@@ -134,11 +130,6 @@ public abstract class OverdriveScreenComponent extends AbstractWidget {
 	}
 
 	@Override
-	public void updateNarration(NarrationElementOutput pNarrationElementOutput) {
-
-	}
-
-	@Override
 	public void playDownSound(SoundManager pHandler) {
 	}
 	
@@ -149,16 +140,16 @@ public abstract class OverdriveScreenComponent extends AbstractWidget {
 	
 	public static enum OverdriveTextures implements ITexture {
 		
-		NONE(new ResourceLocation(""), 0, 0),
-		PROGRESS_BARS(new ResourceLocation(References.ID, "textures/gui/progress/progress.png"), 256, 256),
-		WHITE(new ResourceLocation("forge", "textures/white.png"), 256, 256),
-		HOTBAR_BAR(new ResourceLocation(References.ID, "textures/gui/base/hotbar_bar.png"), 5, 16),
-		RUNNING_INDICATOR(new ResourceLocation(References.ID, "textures/gui/base/indicator.png"), 256, 256),
-		TABLET_SCREEN(new ResourceLocation(References.ID, "textures/gui/misc/screen.png"), 118, 48),
-		ORDER_SEARCH_BAR(new ResourceLocation(References.ID, "textures/gui/misc/order_bar.png"), 158, 20),
-		VERTICAL_SLIDER_BG(new ResourceLocation(References.ID, "textures/gui/slider/vertical_slider_bg.png"), 15, 30),
-		VERTICAL_SLIDER_ACTIVE(new ResourceLocation(References.ID, "textures/gui/slider/vertical_slider_active.png"), 15, 15),
-		VERTICAL_SLIDER_INACTIVE(new ResourceLocation(References.ID, "textures/gui/slider/vertical_slider_inactive.png"), 15, 15);
+		NONE(ResourceLocation.fromNamespaceAndPath(References.ID,""), 0, 0),
+		PROGRESS_BARS(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/progress/progress.png"), 256, 256),
+		WHITE(ResourceLocation.fromNamespaceAndPath("neoforged", "textures/white.png"), 256, 256),
+		HOTBAR_BAR(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/base/hotbar_bar.png"), 5, 16),
+		RUNNING_INDICATOR(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/base/indicator.png"), 256, 256),
+		TABLET_SCREEN(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/misc/screen.png"), 118, 48),
+		ORDER_SEARCH_BAR(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/misc/order_bar.png"), 158, 20),
+		VERTICAL_SLIDER_BG(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/slider/vertical_slider_bg.png"), 15, 30),
+		VERTICAL_SLIDER_ACTIVE(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/slider/vertical_slider_active.png"), 15, 15),
+		VERTICAL_SLIDER_INACTIVE(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/slider/vertical_slider_inactive.png"), 15, 15);
 
 		private final ResourceLocation texture;
 		private final int textureWidth;

@@ -6,17 +6,19 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 
 import matteroverdrive.core.utils.UtilsRendering;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.BakedQuad;
 import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemStack;
 
 public class VariableAlphaItemRenderer extends ItemRenderer {
-
+//????????????????????
+	private static Minecraft minecraft;
 	private float alpha = 1.0F;
 
 	public VariableAlphaItemRenderer(ItemRenderer renderer) {
-		super(renderer.textureManager, renderer.itemModelShaper.getModelManager(), renderer.itemColors,
+		super(minecraft, renderer.textureManager, renderer.itemModelShaper.getModelManager(), renderer.itemColors,
 				renderer.blockEntityRenderer);
 	}
 

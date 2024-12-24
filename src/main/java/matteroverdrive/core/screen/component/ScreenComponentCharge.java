@@ -11,6 +11,8 @@ import matteroverdrive.core.screen.component.utils.OverdriveScreenComponent;
 import matteroverdrive.core.utils.UtilsRendering;
 import matteroverdrive.core.utils.UtilsText;
 import net.minecraft.ChatFormatting;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.util.FormattedCharSequence;
 
 public class ScreenComponentCharge extends OverdriveScreenComponent {
@@ -114,6 +116,18 @@ public class ScreenComponentCharge extends OverdriveScreenComponent {
 			blit(stack, this.x, this.y + offset, this.width, offset, this.width, height);
 
 		}
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -11,6 +11,8 @@ import matteroverdrive.core.screen.GenericScreen;
 import matteroverdrive.core.screen.component.utils.OverdriveScreenComponent;
 import matteroverdrive.core.utils.UtilsMath;
 import matteroverdrive.core.utils.UtilsRendering;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.world.item.Item;
 
@@ -77,6 +79,18 @@ public class ScreenComponentMatterAnalyzer extends OverdriveScreenComponent {
 			UtilsRendering.resetShaderColor();
 
 		}
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

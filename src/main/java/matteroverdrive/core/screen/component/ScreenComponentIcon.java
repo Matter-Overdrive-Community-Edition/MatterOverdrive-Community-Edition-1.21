@@ -9,6 +9,8 @@ import matteroverdrive.core.screen.GenericScreen;
 import matteroverdrive.core.screen.component.utils.ITexture;
 import matteroverdrive.core.screen.component.utils.OverdriveScreenComponent;
 import matteroverdrive.core.utils.UtilsRendering;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.resources.ResourceLocation;
 
 public class ScreenComponentIcon extends OverdriveScreenComponent {
@@ -60,7 +62,7 @@ public class ScreenComponentIcon extends OverdriveScreenComponent {
 			this.height = height;
 			this.textureX = textureX;
 			this.textureY = textureY;
-			this.texture = new ResourceLocation(References.ID, BASE_TEXTURE_LOC + name + ".png");
+			this.texture = ResourceLocation.fromNamespaceAndPath(References.ID, BASE_TEXTURE_LOC + name + ".png");
 		}
 
 		private IconType(int width, int height, String name) {
@@ -101,6 +103,18 @@ public class ScreenComponentIcon extends OverdriveScreenComponent {
 		public int getTextureHeight() {
 			return height;
 		}
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -5,6 +5,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import matteroverdrive.core.screen.GenericScreen;
 import matteroverdrive.core.screen.component.utils.OverdriveScreenComponent;
 import matteroverdrive.core.utils.UtilsRendering;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 
 public class ScreenComponentHotbarBar extends OverdriveScreenComponent {
 
@@ -50,6 +52,18 @@ public class ScreenComponentHotbarBar extends OverdriveScreenComponent {
 		
 		//right corner
 		blit(stack, this.x + lcWidth + addWidth, this.y, lcWidth + midWidth, 0, rcWidth, rcHeight, WIDTH, HEIGHT);
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

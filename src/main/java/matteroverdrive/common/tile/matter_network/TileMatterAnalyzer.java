@@ -34,7 +34,7 @@ import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.util.TriPredicate;
+import net.neoforged.neoforge.common.util.TriPredicate;
 
 public class TileMatterAnalyzer extends GenericMachineTile implements IMatterNetworkMember {
 

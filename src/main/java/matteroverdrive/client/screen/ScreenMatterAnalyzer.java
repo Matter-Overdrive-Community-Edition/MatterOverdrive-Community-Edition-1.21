@@ -13,6 +13,7 @@ import matteroverdrive.core.screen.component.button.ButtonMenuOption.MenuButtonT
 import matteroverdrive.core.screen.component.button.ButtonOverdrive;
 import matteroverdrive.core.screen.types.GenericMachineScreen;
 import matteroverdrive.core.utils.UtilsText;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
@@ -89,6 +90,12 @@ public class ScreenMatterAnalyzer extends GenericMachineScreen<InventoryMatterAn
 
 	private void toggleBarOpen() {
 		EXTENDED = !EXTENDED;
+	}
+
+	@Override
+	protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -26,9 +26,11 @@ import matteroverdrive.core.screen.component.wrappers.WrapperTransporterLocation
 import matteroverdrive.core.screen.types.GenericMachineScreen;
 import matteroverdrive.core.utils.UtilsText;
 import matteroverdrive.registry.SoundRegistry;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.client.KeyboardHandler;
 
 public class ScreenTransporter extends GenericMachineScreen<InventoryTransporter> {
 
@@ -68,7 +70,7 @@ public class ScreenTransporter extends GenericMachineScreen<InventoryTransporter
 
 	@Override
 	protected void init() {
-		minecraft.keyboardHandler.setSendRepeatsToGui(true);
+	//	minecraft.keyboardHandler.setSendRepeatsToGui(true);
 		super.init();
 		close = getCloseButton(207, 6);
 		menu = new ButtonMenuBar(this, 212, 33, 143, EXTENDED, button -> {
@@ -382,7 +384,7 @@ public class ScreenTransporter extends GenericMachineScreen<InventoryTransporter
 	@Override
 	public void removed() {
 		super.removed();
-		minecraft.keyboardHandler.setSendRepeatsToGui(false);
+	//	minecraft.keyboardHandler.setSendRepeatsToGui(false);
 	}
 
 	@Override
@@ -392,6 +394,12 @@ public class ScreenTransporter extends GenericMachineScreen<InventoryTransporter
 			return false;
 		}
 		return super.keyPressed(pKeyCode, pScanCode, pModifiers);
+	}
+
+	@Override
+	protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

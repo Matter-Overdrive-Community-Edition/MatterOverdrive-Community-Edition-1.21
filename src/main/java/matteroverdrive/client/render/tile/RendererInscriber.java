@@ -3,8 +3,8 @@ package matteroverdrive.client.render.tile;
 import java.util.List;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Quaternion;
-import com.mojang.math.Vector3f;
+//import com.mojang.math.Quaternion;
+import org.joml.Vector3f;
 
 import matteroverdrive.client.render.tile.utils.AbstractTileRenderer;
 import matteroverdrive.common.tile.TileInscriber;
@@ -36,11 +36,11 @@ public class RendererInscriber extends AbstractTileRenderer<TileInscriber> {
 				pose.scale(0.45f, 0.45f, 0.45f);
 				switch (inscriber.getFacing()) {
 				case NORTH, SOUTH:
-					pose.mulPose(new Quaternion(new Vector3f(1.0F, 0.0F, 0.0F), -90.0F, true));
-					pose.mulPose(new Quaternion(new Vector3f(0.0F, 0.0F, 1.0F), 90.0F, true));
+				//	pose.mulPose(new Quaternionf(new Vector3f(1.0F, 0.0F, 0.0F), -90.0F, true));
+				//	pose.mulPose(new Quaternion(new Vector3f(0.0F, 0.0F, 1.0F), 90.0F, true));
 					break;
 				case EAST, WEST:
-					pose.mulPose(new Quaternion(new Vector3f(1.0F, 0.0F, 0.0F), -90.0F, true));
+				//	pose.mulPose(new Quaternion(new Vector3f(1.0F, 0.0F, 0.0F), -90.0F, true));
 					break;
 				default:
 					break;

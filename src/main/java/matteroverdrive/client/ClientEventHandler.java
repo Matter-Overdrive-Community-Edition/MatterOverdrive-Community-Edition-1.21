@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Matrix4f;
-
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
+import org.joml.Vector3f;
 import matteroverdrive.References;
 import matteroverdrive.client.keys.handlers.KeyHandlerMatterScanner;
 import matteroverdrive.client.render.rlshandler.RLSHandlerMatterScanner;
@@ -43,7 +44,7 @@ public class ClientEventHandler {
 	private static final List<AbstractRenderLevelStageHandler> RLS_HANDLERS = new ArrayList<>();
 
 	private static final List<AbstractKeyPressHandler> KEY_PRESS_HANDLERS = new ArrayList<>();
-
+	private static final List<AbstractRenderLevelStageHandler> LEVEL_STAGE_RENDER_HANDLERS = new ArrayList<>();
 	private static final List<AbstractTooltipHandler> TOOLTIP_HANDLERS = new ArrayList<>();
 
 	protected static void init() {
@@ -52,7 +53,7 @@ public class ClientEventHandler {
 		TOOLTIP_HANDLERS.add(new MatterValueTooltipHandler());
 	}
 
-	@net.neoforged.bus.api.SubscribeEvent
+	@SubscribeEvent
 	public static void handleTooltipEvents(ItemTooltipEvent event) {
 		List<Component> tooltips = event.getToolTip();
 		ItemStack item = event.getItemStack();
@@ -79,23 +80,14 @@ public class ClientEventHandler {
 	}
 
 	@SubscribeEvent
-	public static void handleRenderLevelStageEvents(RenderLevelStageEvent event) {
-
-		Minecraft minecraft = Minecraft.getInstance();
-		PoseStack matrix = event.getPoseStack();
-		LevelRenderer renderer = event.getLevelRenderer();
-		Matrix4f projMatrix = event.getProjectionMatrix();
-		float partialTicks = event.getPartialTick();
-		long stateNS = event.getRenderTick();
-
-		for (AbstractRenderLevelStageHandler handler : RLS_HANDLERS) {
-			if(handler.isStageCorrect(event.getStage())) {
-				handler.handleRendering(minecraft, renderer, matrix, projMatrix, partialTicks, stateNS);
+	public static void handleRenderEvents(RenderLevelStageEvent event) {
+		LEVEL_STAGE_RENDER_HANDLERS.forEach(handler -> {
+			if (handler.shouldRender(event.getStage())) {
+				handler.render(event.getCamera(), event.getFrustum(), event.getLevelRenderer(), event.getPoseStack(), event.getProjectionMatrix(), Minecraft.getInstance(), event.getRenderTick(), event.getPartialTick());
 			}
-		}
-
+		});
 	}
-
+/*
 	@SubscribeEvent
 	public static void handlerTransporterArrival(MovementInputUpdateEvent event) {
 		Entity entity = event.getEntity();
@@ -115,7 +107,7 @@ public class ClientEventHandler {
 			});
 		}
 	}
-
+*/
 	@SubscribeEvent
 	public static void entityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		event.registerBlockEntityRenderer(TileRegistry.TILE_ANDROID_STATION.get(), RendererStationAndroid::new);

@@ -9,6 +9,8 @@ import matteroverdrive.core.screen.GenericScreen;
 import matteroverdrive.core.screen.component.utils.AbstractOverdriveButton;
 import matteroverdrive.core.utils.UtilsRendering;
 import matteroverdrive.registry.SoundRegistry;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.client.renderer.GameRenderer;
 import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.client.sounds.SoundManager;
@@ -80,6 +82,18 @@ public class ButtonGeneric extends AbstractOverdriveButton {
 			this.event = event;
 		}
 
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -4,9 +4,9 @@ import matteroverdrive.core.android.api.perk.AndroidPerkManager;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.neoforged.neoforge.common.capabilities.ICapabilitySerializable;
+import net.neoforged.neoforge.common.util.INBTSerializable;
 
-public interface ICapabilityAndroid extends ICapabilitySerializable<CompoundTag> {
+public interface ICapabilityAndroid extends INBTSerializable<CompoundTag> {
 
   /**
    * Checks if the {@link net.minecraft.world.entity.Entity} is currently and android or not

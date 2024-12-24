@@ -9,6 +9,8 @@ import matteroverdrive.core.screen.component.utils.OverdriveScreenComponent;
 import matteroverdrive.core.tile.utils.IUpgradableTile;
 import matteroverdrive.core.utils.UtilsText;
 import net.minecraft.client.gui.Font;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.MutableComponent;
 
 public class ScreenComponentUpgradeInfo extends OverdriveScreenComponent {
@@ -115,6 +117,18 @@ public class ScreenComponentUpgradeInfo extends OverdriveScreenComponent {
 			}
 
 		}
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

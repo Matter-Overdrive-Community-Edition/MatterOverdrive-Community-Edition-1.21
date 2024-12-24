@@ -71,7 +71,7 @@ public class ParticleShockwave extends TextureSheetParticle {
 		float maxX = (float) (box.maxX - cameraPos.x);
 		float maxY = (float) (box.maxY - cameraPos.y);
 		float maxZ = (float) (box.maxZ - cameraPos.z);
-
+/*
 		// bottom
 		builder.vertex(minX, minY, minZ).uv(uMin, vMin).color(r, g, b, a).uv2(j, k).endVertex();
 		builder.vertex(maxX, minY, minZ).uv(uMax, vMin).color(r, g, b, a).uv2(j, k).endVertex();
@@ -83,7 +83,7 @@ public class ParticleShockwave extends TextureSheetParticle {
 		builder.vertex(minX, maxY, minZ).uv(uMax, vMin).color(r, g, b, a).uv2(j, k).endVertex();
 		builder.vertex(minX, maxY, maxZ).uv(uMax, vMax).color(r, g, b, a).uv2(j, k).endVertex();
 		builder.vertex(maxX, maxY, maxZ).uv(uMin, vMax).color(r, g, b, a).uv2(j, k).endVertex();
-
+*/
 	}
 
 	@Override

@@ -2,11 +2,13 @@ package matteroverdrive.client.render.tile;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Matrix3f;
-import com.mojang.math.Matrix4f;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
+import org.joml.Matrix4fc;
+import org.joml.Vector3f;
 
-import matteroverdrive.client.ClientReferences.AtlasTextures;
+//import matteroverdrive.client.ClientReferences.AtlasTextures;
 import matteroverdrive.client.ClientReferences.Colors;
 import matteroverdrive.client.ClientRegister;
 import matteroverdrive.client.render.tile.utils.AbstractTileRenderer;
@@ -62,12 +64,12 @@ public class RendererPatternMonitor extends AbstractTileRenderer<TilePatternMoni
 		if (state.hasProperty(BlockStateProperties.LIT) && state.getValue(BlockStateProperties.LIT)) {
 			matrix.pushPose();
 
-			TextureAtlasSprite holoGrid = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_GRID);
-			float[] holo_uv = {holoGrid.getU0(), holoGrid.getU1(), holoGrid.getV0(), holoGrid.getV1()};
-			float[] holoColor = Colors.HOLO.getFloatArrModAlpha(0.2F);
+			//TextureAtlasSprite holoGrid = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_GRID);
+			//float[] holo_uv = {holoGrid.getU0(), holoGrid.getU1(), holoGrid.getV0(), holoGrid.getV1()};
+			//float[] holoColor = Colors.HOLO.getFloatArrModAlpha(0.2F);
 
-			TextureAtlasSprite holoGlow = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_GLOW);
-			float[] glow_uv = {holoGlow.getU0(), holoGlow.getU1(), holoGlow.getV0(), holoGlow.getV1()};
+		//	TextureAtlasSprite holoGlow = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_GLOW);
+		//	float[] glow_uv = {holoGlow.getU0(), holoGlow.getU1(), holoGlow.getV0(), holoGlow.getV1()};
 
 			float propAlpha = (float) Math.abs(Math.cos((double) (getGameTime() % 80) / 80.0D * Math.PI));
 			if (propAlpha < 0.1F)
@@ -75,7 +77,7 @@ public class RendererPatternMonitor extends AbstractTileRenderer<TilePatternMoni
 
 			float[] glowColor = Colors.HOLO.getFloatArrModAlpha(propAlpha);
 
-			TextureAtlasSprite holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR);
+		//	TextureAtlasSprite holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR);
 			float[] barsColor = Colors.HOLO.getFloatArr();
 
 			Matrix4f matrix4f = matrix.last().pose();
@@ -94,25 +96,25 @@ public class RendererPatternMonitor extends AbstractTileRenderer<TilePatternMoni
 				float rot = horizontalFacing.toYRot();
 				if (facing == Direction.UP) {
 					if (rot == 90.0F) {
-						holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR_90);
+					//	holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR_90);
 					} else if (rot == 180.0F) {
-						holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR_180);
+				//		holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR_180);
 					} else if (rot == 270.0F) {
-						holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR_270);
+				//		holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR_270);
 					}
 				} else {
 					if (rot == 90.0F) {
-						holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR_90);
+					//	holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR_90);
 					} else if (rot == 0.0F) {
-						holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR_180);
+					//	holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR_180);
 					} else if (rot == 270.0F) {
-						holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR_270);
+					//	holoBars = ClientRegister.CACHED_TEXTUREATLASSPRITES.get(AtlasTextures.HOLO_PATTERN_MONITOR_270);
 					}
 				}
 			}
 
-			float[] bars_uv = {holoBars.getU0(), holoBars.getU1(), holoBars.getV0(), holoBars.getV1()};
-
+			//float[] bars_uv = {holoBars.getU0(), holoBars.getU1(), holoBars.getV0(), holoBars.getV1()};
+/*
 			switch (facing) {
 				case DOWN:
 					UtilsRendering.renderBottomOfBox(builder, BARS_COORDS[0], barsColor, bars_uv, matrix4f, matrix3f, 255,
@@ -163,7 +165,7 @@ public class RendererPatternMonitor extends AbstractTileRenderer<TilePatternMoni
 						OverlayTexture.NO_OVERLAY);
 					break;
 			}
-
+*/
 			matrix.popPose();
 		}
 
@@ -194,7 +196,7 @@ public class RendererPatternMonitor extends AbstractTileRenderer<TilePatternMoni
 
 			matrix.scale(0.075f, 0.075f, 0.075f);
 
-			matrix.mulPose(Vector3f.ZP.rotationDegrees(180));
+			matrix.mulPose(Axis.ZP.rotationDegrees(180));
 
 			switch (facing) {
 				case NORTH:
@@ -204,24 +206,24 @@ public class RendererPatternMonitor extends AbstractTileRenderer<TilePatternMoni
 				case SOUTH:
 					matrix.translate(-4.0f, -10.0f, 6.5f);
 
-					matrix.mulPose(Vector3f.YP.rotationDegrees(180));
+					matrix.mulPose(Axis.YP.rotationDegrees(180));
 
 					break;
 				case EAST:
 					matrix.translate(-6.5f, -10.0f, 9.0f);
 
-					matrix.mulPose(Vector3f.YP.rotationDegrees(90));
+					matrix.mulPose(Axis.YP.rotationDegrees(90));
 
 					break;
 				case WEST:
 					matrix.translate(-6.5f, -10.0f, 4.0f);
 
-					matrix.mulPose(Vector3f.YP.rotationDegrees(270));
+					matrix.mulPose(Axis.YP.rotationDegrees(270));
 
 					break;
 			}
 
-			instance.font.draw(matrix, orderString, 0f, 0f, Colors.HOLO.getColor());
+		//	instance.font.draw(matrix, orderString, 0f, 0f, Colors.HOLO.getColor());
 
 			matrix.popPose();
 		}

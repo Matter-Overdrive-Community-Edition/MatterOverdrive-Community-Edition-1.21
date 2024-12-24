@@ -1,6 +1,6 @@
 package matteroverdrive.core.utils;
 
-import com.mojang.math.Vector3f;
+import org.joml.Vector3f;
 
 import matteroverdrive.MatterOverdrive;
 import matteroverdrive.client.particle.vent.ParticleOptionVent;

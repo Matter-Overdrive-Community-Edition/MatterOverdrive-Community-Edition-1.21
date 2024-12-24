@@ -18,7 +18,6 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.neoforge.client.event.RegisterColorHandlersEvent;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.Mod;
 
 public class OverdriveItem extends Item implements IItemColored {
 
@@ -38,7 +37,7 @@ public class OverdriveItem extends Item implements IItemColored {
 	@Override
 	public void appendHoverText(ItemStack stack, Level world, List<Component> tooltips, TooltipFlag flag) {
 		appendPreSuperTooltip(stack, world, tooltips, flag);
-		super.appendHoverText(stack, world, tooltips, flag);
+		super.appendHoverText(stack, (TooltipContext) world, tooltips, flag);
 		appendPostSuperTooltip(stack, world, tooltips, flag);
 		if(hasShiftTip) {
 			if(Screen.hasShiftDown()) {

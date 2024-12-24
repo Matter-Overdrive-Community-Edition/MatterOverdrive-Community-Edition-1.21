@@ -130,7 +130,7 @@ public class ClientReferences {
 		private final int textHeight;
 		
 		private AtlasTextures(String name, int width, int height) {
-			this.loc = new ResourceLocation(References.ID, PATH_TEXT_CUSTOM_ATLAS + name);
+			this.loc = ResourceLocation.fromNamespaceAndPath(References.ID, PATH_TEXT_CUSTOM_ATLAS + name);
 			textWidth = width;
 			textHeight = height;
 		}

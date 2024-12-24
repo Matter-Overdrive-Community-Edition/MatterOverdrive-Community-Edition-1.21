@@ -53,12 +53,12 @@ public class TickableSoundTile extends AbstractTickableSoundInstance {
 		}
 	}
 
-/*	@Override
+	@Override
 	public void stop() {
 		super.stop();
 		tile.setNotPlaying();
 	}
-*/
+
 	public void stopAbstract() {
 		super.stop();
 	}

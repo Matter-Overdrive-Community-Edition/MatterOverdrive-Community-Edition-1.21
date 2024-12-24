@@ -22,10 +22,14 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.entity.BlockEntityType.BlockEntitySupplier;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
+import net.neoforged.neoforge.registries.DeferredBlock;
+import net.neoforged.neoforge.registries.DeferredHolder;
 
 
 public class BlockMachine<T extends GenericTile> extends GenericMachineBlock {
@@ -34,24 +38,27 @@ public class BlockMachine<T extends GenericTile> extends GenericMachineBlock {
 		super(properties, supplier);
 		// TODO Auto-generated constructor stub
 	}
-
+    public static final DirectionProperty FACING = DirectionProperty.create("facing", Direction.Plane.HORIZONTAL);
+    public static final BooleanProperty ACTIVE = BooleanProperty.create("active");
+    public static final BooleanProperty CAN_EMIT = BooleanProperty.create("can_emit");
 
 	public TypeMachine type;
-/*	private RegistryObject<BlockEntityType<T>> blockEntityType;
+//	private RegistryObject<BlockEntityType<T>> blockEntityType;
 
-    public BlockMachine(TypeMachine type) {
-        super(type.getBlockEntitySupplier(), type.getVoxelShapeProvider());
-        this.type = type;
-        if (type.getLitBrightness() > 0) {
-            registerDefaultState(stateDefinition.any().setValue(ElectrodynamicsBlockStates.LIT, false));
-        }
+  //  public BlockMachine(Properties properties) {
+  //      super(properties);
+
+  //      registerDefaultState(this.getStateDefinition().any()
+  //              .setValue(FACING, Direction.NORTH).setValue(ACTIVE, false).setValue(CAN_EMIT, false));
+  //  }
+        
 
 
-	public BlockMachine(BlockEntitySupplier<BlockEntity> supplier, TypeMachine type,
-			RegistryObject<BlockEntityType<T>> entity) {
-		this(type.properties, supplier, type, entity);
-	}
-*/
+//	public BlockMachine(BlockEntitySupplier<BlockEntity> supplier, TypeMachine type,
+	//		DeferredItem<BlockEntityType<T>> entity) {
+//		this(type.properties, supplier, type, entity);
+	//}
+
 	@Override
 	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		if (type.hasCustomAABB) {

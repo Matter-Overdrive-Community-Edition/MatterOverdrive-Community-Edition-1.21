@@ -131,7 +131,7 @@ public class MatterRegister extends SimplePreparableReloadListener<Map<ResourceL
 			});
 		});
 		Map<ResourceLocation, JsonObject> combined = new HashMap<>();
-		combined.put(new ResourceLocation(References.ID, "combinedmattervals"), merged);
+		combined.put(ResourceLocation.fromNamespaceAndPath(References.ID, "combinedmattervals"), merged);
 
 		return combined;
 	}
@@ -150,7 +150,7 @@ public class MatterRegister extends SimplePreparableReloadListener<Map<ResourceL
 				if (key.charAt(0) == '#') {
 					key = key.substring(1);
 					String[] split = key.split(":");
-					parsedTags.put(TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(split[0], split[1])),
+					parsedTags.put(TagKey.create(Registry.ITEM_REGISTRY, ResourceLocation.fromNamespaceAndPath(split[0], split[1])),
 							h.getValue().getAsDouble());
 				} else {
 					ResourceLocation loc = new ResourceLocation(key);

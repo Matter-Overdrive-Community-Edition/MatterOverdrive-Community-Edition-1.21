@@ -8,7 +8,7 @@ import net.minecraft.client.resources.language.I18n;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.neoforge.registries.NeoForgeRegistries;
 
 public class UtilsText {
 	
@@ -121,8 +121,8 @@ public class UtilsText {
 		return format.format(val / Math.pow(1000, base));
 	}
 	
-	public static MutableComponent itemTooltip(Item item) {
-		return tooltip(ForgeRegistries.ITEMS.getKey(item).getPath() + ".desc");
+	public static String itemTooltip(Item item) {
+		return "BROKEN";// tooltip(ITEMS.getKey(item).getPath() + ".desc");
 	}
 
 	public static MutableComponent tooltip(String key, Object... additional) {

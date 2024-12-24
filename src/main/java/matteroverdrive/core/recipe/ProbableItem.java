@@ -6,7 +6,7 @@ import matteroverdrive.MatterOverdrive;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.common.crafting.CraftingHelper;
+import net.neoforged.neoforge.common.crafting.CraftingHelper;
 
 public class ProbableItem {
 

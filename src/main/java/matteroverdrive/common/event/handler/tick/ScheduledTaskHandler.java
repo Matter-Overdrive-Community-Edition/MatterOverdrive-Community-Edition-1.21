@@ -8,12 +8,12 @@ import javax.annotation.Nonnull;
 
 import matteroverdrive.core.event.handler.server.AbstractServerTickHandler;
 import net.minecraft.server.MinecraftServer;
-import net.neoforged.neoforge.event.TickEvent.Phase;
+//import net.neoforged.neoforge.event.TickEvent.Phase;
 
-public class ScheduledTaskHandler extends AbstractServerTickHandler {
+public abstract class ScheduledTaskHandler extends AbstractServerTickHandler {
 
 	private ConcurrentHashMap<Runnable, Integer> tasks = new ConcurrentHashMap<>();
-
+/*
 	@Override
 	public void handleTick(MinecraftServer server, Phase phase, boolean enoughTime) {
 		Iterator<Entry<Runnable, Integer>> it = tasks.entrySet().iterator();
@@ -27,7 +27,7 @@ public class ScheduledTaskHandler extends AbstractServerTickHandler {
 			}
 		}
 	}
-
+*/
 	public void queueTask(@Nonnull Runnable run, int delay) {
 		tasks.put(run, delay);
 	}

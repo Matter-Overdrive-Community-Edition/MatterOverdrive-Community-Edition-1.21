@@ -20,7 +20,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.common.capabilities.ICapabilityProvider;
+import net.neoforged.neoforge.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
 
 
@@ -30,7 +30,7 @@ public class ItemPatternDrive extends OverdriveItem {
 	public static final String FUSED_KEY = "fused";
 
 	public ItemPatternDrive() {
-		super(new Item.Properties().stacksTo(1).tab(References.MAIN), true);
+		super(new Item.Properties().stacksTo(1), true);
 	}
 
 	@Override

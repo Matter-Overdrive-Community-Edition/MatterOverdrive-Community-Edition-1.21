@@ -1,7 +1,6 @@
 package matteroverdrive.client.screen;
 
 import com.mojang.blaze3d.platform.InputConstants;
-import com.mojang.blaze3d.vertex.PoseStack;
 import matteroverdrive.client.ClientReferences;
 import matteroverdrive.common.inventory.InventoryHoloSign;
 import matteroverdrive.common.tile.TileHoloSign;
@@ -12,6 +11,7 @@ import matteroverdrive.core.screen.component.button.ButtonMenuBar;
 import matteroverdrive.core.screen.component.edit_box.EditBoxOverdrive;
 import matteroverdrive.core.screen.component.edit_box.EditBoxOverdriveMultiline;
 import matteroverdrive.core.screen.types.GenericOverdriveScreen;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
@@ -34,8 +34,7 @@ public class ScreenHoloSign extends GenericOverdriveScreen<InventoryHoloSign> {
 	@Override
 	protected void init() {
 		alreadyOpened = false;
-
-		minecraft.keyboardHandler.setSendRepeatsToGui(true);
+		//minecraft.keyboardHandler.setSendRepeatsToGui(true);
 
 		super.init();
 
@@ -60,13 +59,13 @@ public class ScreenHoloSign extends GenericOverdriveScreen<InventoryHoloSign> {
 		);
 
 		textArea.setTextColor(ClientReferences.Colors.WHITE.getColor());
-		textArea.setFocus(true);
+		textArea.setFocused(true);
 		textArea.setCanLoseFocus(false);
 		textArea.setCursorPosition(1);
-		textArea.changeFocus(true);
+	//	textArea.changeFocus(true);
 		textArea.setTextColorUneditable(ClientReferences.Colors.WHITE.getColor());
 		textArea.setMaxLength(60);
-		textArea.setResponder(string -> textArea.setFocus(true));
+		textArea.setResponder(string -> textArea.setFocused(true));
 		textArea.setValue(Objects.requireNonNull(incoming));
 
 		addEditBox(textArea);
@@ -89,11 +88,11 @@ public class ScreenHoloSign extends GenericOverdriveScreen<InventoryHoloSign> {
 	public void removed() {
 		super.removed();
 
-		minecraft.keyboardHandler.setSendRepeatsToGui(false);
+		//minecraft.keyboardHandler.setSendRepeatsToGui(false);
 	}
 	
 	@Override
-	public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks) {
+	public void render(GuiGraphics matrixStack, int mouseX, int mouseY, float partialTicks) {
 		super.render(matrixStack, mouseX, mouseY, partialTicks);
 
 		String incoming = Objects.requireNonNull(getMenu().getTile()).getText();
@@ -118,5 +117,11 @@ public class ScreenHoloSign extends GenericOverdriveScreen<InventoryHoloSign> {
 		}
 
 		return super.keyPressed(pKeyCode, pScanCode, pModifiers);
+	}
+
+	@Override
+	protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
+		// TODO Auto-generated method stub
+		
 	}
 }

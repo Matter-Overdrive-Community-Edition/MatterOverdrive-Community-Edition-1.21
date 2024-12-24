@@ -7,6 +7,8 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import matteroverdrive.core.screen.GenericScreen;
 import matteroverdrive.core.screen.component.utils.OverdriveScreenComponent;
 import matteroverdrive.core.utils.UtilsRendering;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 
 public class ScreenComponentVerticalSlider extends OverdriveScreenComponent {
 
@@ -100,6 +102,18 @@ public class ScreenComponentVerticalSlider extends OverdriveScreenComponent {
 
 	public boolean isSliderHeld() {
 		return isHeld;
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -155,8 +155,8 @@ public class EditBoxOverdrive extends EditBox {
 	
 public static enum EditBoxTextures implements ITexture {
 
-		OVERDRIVE_EDIT_BOX(new ResourceLocation(References.ID, "textures/gui/button/edit_box.png"), 18, 18),
-		SEARCH_BAR(new ResourceLocation(References.ID, "textures/gui/guidebook/search_field.png"), 166, 14);
+		OVERDRIVE_EDIT_BOX(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/button/edit_box.png"), 18, 18),
+		SEARCH_BAR(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/guidebook/search_field.png"), 166, 14);
 		
 		private final ResourceLocation texture;
 		private final int textureWidth;

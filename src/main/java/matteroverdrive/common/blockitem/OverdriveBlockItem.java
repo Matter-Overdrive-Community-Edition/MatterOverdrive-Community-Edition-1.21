@@ -21,10 +21,9 @@ public class OverdriveBlockItem extends BlockItem {
 		this.hasShiftTip = hasShiftTip;
 	}
 	
-	@Override
 	public void appendHoverText(ItemStack stack, Level world, List<Component> tooltips, TooltipFlag flag) {
 		appendPreSuperTooltip(stack, world, tooltips, flag);
-		super.appendHoverText(stack, world, tooltips, flag);
+		super.appendHoverText(stack, (TooltipContext) world, tooltips, flag);
 		appendPostSuperTooltip(stack, world, tooltips, flag);
 		if(hasShiftTip) {
 			if(Screen.hasShiftDown()) {

@@ -10,6 +10,7 @@ import matteroverdrive.core.screen.component.button.ButtonMenuOption.MenuButtonT
 import matteroverdrive.core.screen.component.wrappers.WrapperFusePatternDrive;
 import matteroverdrive.core.screen.component.wrappers.WrapperWipePatterns;
 import matteroverdrive.core.screen.types.GenericOverdriveScreen;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
@@ -65,8 +66,8 @@ public class ScreenDiscManipulator extends GenericOverdriveScreen<InventoryDiscM
 		eraseWrapper = new WrapperWipePatterns(this, 42, 26);
 		fuseWrapper = new WrapperFusePatternDrive(this, 42, 26);
 
-		eraseWrapper.init(itemRenderer);
-		fuseWrapper.init(itemRenderer);
+	//	eraseWrapper.init(itemRenderer);
+	//	fuseWrapper.init(itemRenderer);
 		
 		eraseWrapper.initButtons();
 		fuseWrapper.initButtons();
@@ -92,6 +93,12 @@ public class ScreenDiscManipulator extends GenericOverdriveScreen<InventoryDiscM
 	
 	private void toggleBarOpen() {
 		EXTENDED = !EXTENDED;
+	}
+
+	@Override
+	protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

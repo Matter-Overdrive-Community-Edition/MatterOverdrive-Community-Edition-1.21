@@ -3,7 +3,9 @@ package matteroverdrive.client.render.tile;
 import org.jetbrains.annotations.NotNull;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
+
+import org.joml.Vector3f;
 
 import matteroverdrive.client.render.item.VariableAlphaItemRenderer;
 import matteroverdrive.client.render.tile.utils.AbstractTileRenderer;
@@ -53,7 +55,7 @@ public class RendererMatterReplicator extends AbstractTileRenderer<TileMatterRep
 			float spin = ((float) simLifespan + ticks) / 20.0F;
 
 			if (shouldSpin) {
-				matrix.mulPose(Vector3f.YP.rotation(spin));
+				matrix.mulPose(Axis.YP.rotation(spin));
 				float processingTime = (float) (replicator.getProcessingTime() == 0 ? 1.0F : replicator.getProcessingTime());
 				renderer.setAlpha((float) replicator.getProgress() / processingTime);
 			} else {
@@ -65,11 +67,11 @@ public class RendererMatterReplicator extends AbstractTileRenderer<TileMatterRep
 			}
 
 			if (!shouldSpin) {
-				matrix.mulPose(Vector3f.YP.rotationDegrees(90));
+				matrix.mulPose(Axis.YP.rotationDegrees(90));
 			}
 
-			renderer.render(stack, ItemTransforms.TransformType.GROUND, false, matrix, buffer, light,
-					OverlayTexture.NO_OVERLAY, model);
+			//renderer.render(stack, ItemTransforms.TransformType.GROUND, false, matrix, buffer, light,
+			//		OverlayTexture.NO_OVERLAY, model);
 
 			simLifespan++;
 			if (simLifespan >= 6000) {

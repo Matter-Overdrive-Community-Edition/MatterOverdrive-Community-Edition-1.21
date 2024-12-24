@@ -2,7 +2,6 @@ package matteroverdrive.common.item;
 
 import java.util.List;
 
-import matteroverdrive.References;
 import matteroverdrive.common.item.utils.OverdriveItem;
 import matteroverdrive.core.registers.IBulkRegistryObject;
 import matteroverdrive.core.utils.UtilsText;
@@ -19,7 +18,7 @@ public class ItemUpgrade extends OverdriveItem {
 	public UpgradeType type;
 
 	public ItemUpgrade(UpgradeType type) {
-		super(new Item.Properties().tab(References.UPGRADES).stacksTo(16), false);
+		super(new Item.Properties().stacksTo(16), false);
 		this.type = type;
 	}
 

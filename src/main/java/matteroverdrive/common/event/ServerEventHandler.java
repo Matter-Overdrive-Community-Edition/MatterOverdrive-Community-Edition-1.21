@@ -25,24 +25,24 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.event.AddReloadListenerEvent;
-import net.neoforged.neoforge.event.AttachCapabilitiesEvent;
+//import net.neoforged.neoforge.event.AttachCapabilitiesEvent;
 import net.neoforged.neoforge.event.RegisterCommandsEvent;
 import net.neoforged.neoforge.event.tick.ServerTickEvent;
 import net.neoforged.neoforge.event.server.ServerStartedEvent;
 import net.neoforged.neoforge.server.ServerLifecycleHooks;
-import net.neoforged.neoforge.event.TickEvent.Phase;
+//import net.neoforged.neoforge.event.TickEvent.Phase;
 
 @EventBusSubscriber(modid = References.ID, bus = EventBusSubscriber.Bus.MOD)
 public class ServerEventHandler {
 
 	private static final List<AbstractServerTickHandler> TICK_HANDLERS = new ArrayList<>();
 
-	public static final ScheduledTaskHandler TASK_HANDLER = new ScheduledTaskHandler();
+	//public static final ScheduledTaskHandler TASK_HANDLER = new ScheduledTaskHandler();
 	public static final ServerEventPostManager EVENT_POST_MANAGER = new ServerEventPostManager();
 
 	public static void init() {
-		TICK_HANDLERS.add(new TeleporterArrivalHandler());
-		TICK_HANDLERS.add(TASK_HANDLER);
+		//TICK_HANDLERS.add(new TeleporterArrivalHandler());
+		//TICK_HANDLERS.add(TASK_HANDLER);
 	}
 
 	@SubscribeEvent
@@ -62,7 +62,7 @@ public class ServerEventHandler {
 		CommandGenerateZeroValues.register(event.getDispatcher());
 		EVENT_POST_MANAGER.postRegisterMatterGeneratorsEvent();
 	}
-
+/*
 	@SubscribeEvent
 	public static void attachOverworldData(RegisterCapabilitiesEvent<Level> event) {
 		Level world = event.getObject();
@@ -91,7 +91,7 @@ public class ServerEventHandler {
 		}
 
 	}
-	
+	*/
 	@SubscribeEvent
 	public static void registerDefaultMatterGenerators(RegisterMatterGeneratorsEvent event) {
 		DefaultMatterGenerators.gatherGenerators(event);

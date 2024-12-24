@@ -1,7 +1,9 @@
 package matteroverdrive.client.render.tile;
 
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
+import com.mojang.math.Axis;
+
+import org.joml.Vector3f;
 
 import matteroverdrive.client.render.tile.utils.AbstractTileRenderer;
 import matteroverdrive.common.tile.matter_network.TileMatterAnalyzer;
@@ -48,14 +50,14 @@ public class RendererMatterAnalyzer extends AbstractTileRenderer<TileMatterAnaly
 
 		float spin = ((float) simLifespan + ticks) / 20.0F;
 
-		matrix.mulPose(Vector3f.YP.rotation(spin));
+		matrix.mulPose(Axis.YP.rotation(spin));
 
 		if (!isGui3D) {
 			matrix.translate(-0.0D, -0.0D, -0.0D);
 		}
 
-		renderer.render(stack, ItemTransforms.TransformType.GROUND, false, matrix, buffer, light,
-				OverlayTexture.NO_OVERLAY, model);
+	//	renderer.render(stack, ItemTransforms.TransformType.GROUND, false, matrix, buffer, light,
+	//			OverlayTexture.NO_OVERLAY, model);
 
 		simLifespan++;
 		if (simLifespan >= 6000) {

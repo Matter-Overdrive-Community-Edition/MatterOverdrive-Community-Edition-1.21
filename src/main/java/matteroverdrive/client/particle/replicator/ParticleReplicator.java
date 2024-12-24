@@ -96,7 +96,7 @@ public class ParticleReplicator extends TextureSheetParticle {
 		public Particle createParticle(@Nonnull ParticleOptionReplicator type, @Nonnull ClientLevel world, double x,
 				double y, double z, double xSpeed, double ySpeed, double zSpeed) {
 			ParticleReplicator particle = new ParticleReplicator(world, x, y, z, xSpeed, ySpeed, zSpeed, type.gravity,
-					type.scale, type.age);
+					type.scale, type.maxAge);
 			particle.pickSprite(this.spriteSet);
 			return particle;
 		}

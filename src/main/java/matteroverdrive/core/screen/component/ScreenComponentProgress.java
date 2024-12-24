@@ -8,6 +8,8 @@ import matteroverdrive.client.ClientReferences.Colors;
 import matteroverdrive.core.screen.GenericScreen;
 import matteroverdrive.core.screen.component.utils.OverdriveScreenComponent;
 import matteroverdrive.core.utils.UtilsRendering;
+import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.narration.NarrationElementOutput;
 
 public class ScreenComponentProgress extends OverdriveScreenComponent {
 
@@ -62,6 +64,18 @@ public class ScreenComponentProgress extends OverdriveScreenComponent {
 			blit(stack, this.x, this.y, HOR_BASE_X + this.width, HOR_BASE_Y, width, this.height);
 		}
 		UtilsRendering.resetShaderColor();
+	}
+
+	@Override
+	protected void renderWidget(GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTick) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateWidgetNarration(NarrationElementOutput narrationElementOutput) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

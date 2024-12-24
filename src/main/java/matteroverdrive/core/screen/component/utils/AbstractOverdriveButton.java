@@ -12,8 +12,8 @@ import net.minecraft.client.gui.narration.NarratedElementType;
 import net.minecraft.client.gui.narration.NarrationElementOutput;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.api.distmarker.OnlyIn;
 
 public abstract class AbstractOverdriveButton extends OverdriveScreenComponent {
 
@@ -67,14 +67,6 @@ public abstract class AbstractOverdriveButton extends OverdriveScreenComponent {
 		this.onTooltip.onTooltip(this, stack, mouseX, mouseY);
 	}
 
-	@Override
-	public void updateNarration(NarrationElementOutput narrationElementOutput) {
-		this.defaultButtonNarrationText(narrationElementOutput);
-		this.onTooltip.narrateTooltip((component) -> {
-			narrationElementOutput.add(NarratedElementType.HINT, component);
-		});
-	}
-
 	@OnlyIn(Dist.CLIENT)
 	public interface OnPress {
 		void onPress(AbstractOverdriveButton button);
@@ -90,18 +82,18 @@ public abstract class AbstractOverdriveButton extends OverdriveScreenComponent {
 	
 	public static enum ButtonTextures implements ITexture {
 		
-		GENERIC_BUTTONS(new ResourceLocation(References.ID, "textures/gui/button/buttons.png"), 256, 256),
-		MENU_BAR(new ResourceLocation(References.ID, "textures/gui/button/menu_bar.png"), 87, 43),
+		GENERIC_BUTTONS(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/button/buttons.png"), 256, 256),
+		MENU_BAR(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/button/menu_bar.png"), 87, 43),
 		
-		OVERDRIVE_NONE_REG(new ResourceLocation(References.ID, "textures/gui/button/button_normal.png"), 18, 18),
-		OVERDRIVE_NONE_LEFT(new ResourceLocation(References.ID, "textures/gui/button/button_normal_left.png"), 18, 18),
-		OVERDRIVE_NONE_RIGHT(new ResourceLocation(References.ID, "textures/gui/button/button_normal_right.png"), 18, 18),
-		OVERDRIVE_HOVER_REG(new ResourceLocation(References.ID, "textures/gui/button/button_over.png"), 18, 18),
-		OVERDRIVE_HOVER_LEFT(new ResourceLocation(References.ID, "textures/gui/button/button_over_left.png"), 18, 18),
-		OVERDRIVE_HOVER_RIGHT(new ResourceLocation(References.ID, "textures/gui/button/button_over_right.png"), 18, 18),
-		OVERDRIVE_PRESS_REG(new ResourceLocation(References.ID, "textures/gui/button/button_over_dark.png"), 18, 18),
-		OVERDRIVE_PRESS_LEFT(new ResourceLocation(References.ID, "textures/gui/button/button_over_dark_left.png"), 18, 18),
-		OVERDRIVE_PRESS_RIGHT(new ResourceLocation(References.ID, "textures/gui/button/button_over_dark_right.png"), 18, 18);
+		OVERDRIVE_NONE_REG(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/button/button_normal.png"), 18, 18),
+		OVERDRIVE_NONE_LEFT(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/button/button_normal_left.png"), 18, 18),
+		OVERDRIVE_NONE_RIGHT(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/button/button_normal_right.png"), 18, 18),
+		OVERDRIVE_HOVER_REG(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/button/button_over.png"), 18, 18),
+		OVERDRIVE_HOVER_LEFT(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/button/button_over_left.png"), 18, 18),
+		OVERDRIVE_HOVER_RIGHT(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/button/button_over_right.png"), 18, 18),
+		OVERDRIVE_PRESS_REG(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/button/button_over_dark.png"), 18, 18),
+		OVERDRIVE_PRESS_LEFT(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/button/button_over_dark_left.png"), 18, 18),
+		OVERDRIVE_PRESS_RIGHT(ResourceLocation.fromNamespaceAndPath(References.ID, "textures/gui/button/button_over_dark_right.png"), 18, 18);
 		
 		private final ResourceLocation texture;
 		private final int textureWidth;

@@ -14,6 +14,7 @@ import matteroverdrive.core.screen.component.button.ButtonMenuOption.MenuButtonT
 import matteroverdrive.core.screen.component.wrappers.WrapperPatternMonitorOrders;
 import matteroverdrive.core.screen.component.wrappers.WrapperPatternMonitorScreen;
 import matteroverdrive.core.screen.types.GenericOverdriveScreen;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Inventory;
 
@@ -84,8 +85,8 @@ public class ScreenPatternMonitor extends GenericOverdriveScreen<InventoryPatter
 		addButton(home);
 		addButton(tasks);
 
-		wrapper.initButtons(itemRenderer);
-		ordersWrapper.initButtons(itemRenderer);
+	//	wrapper.initButtons(itemRenderer);
+	//	ordersWrapper.initButtons(itemRenderer);
 
 		ordersWrapper.updateButtons(false);
 
@@ -112,7 +113,7 @@ public class ScreenPatternMonitor extends GenericOverdriveScreen<InventoryPatter
 		EXTENDED = !EXTENDED;
 	}
 
-	@Override
+	/*@Override
 	public boolean mouseScrolled(double mouseX, double mouseY, double delta) {
 		if (wrapper != null && screenNumber == 0) {
 			if (delta > 0) {
@@ -125,7 +126,7 @@ public class ScreenPatternMonitor extends GenericOverdriveScreen<InventoryPatter
 		}
 		return super.mouseScrolled(mouseX, mouseY, delta);
 	}
-
+*/
 	@Override
 	public void mouseMoved(double mouseX, double mouseY) {
 		super.mouseMoved(mouseX, mouseY);
@@ -164,6 +165,12 @@ public class ScreenPatternMonitor extends GenericOverdriveScreen<InventoryPatter
 			return false;
 		}
 		return super.keyPressed(pKeyCode, pScanCode, pModifiers);
+	}
+
+	@Override
+	protected void renderBg(GuiGraphics guiGraphics, float partialTick, int mouseX, int mouseY) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

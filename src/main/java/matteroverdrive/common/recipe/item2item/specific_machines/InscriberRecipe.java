@@ -4,10 +4,12 @@ import matteroverdrive.References;
 import matteroverdrive.common.recipe.RecipeInit;
 import matteroverdrive.common.recipe.item2item.Item2ItemRecipe;
 import matteroverdrive.core.recipe.CountableIngredient;
+import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
+import net.neoforged.neoforge.items.wrapper.RecipeWrapper;
 
 public class InscriberRecipe extends Item2ItemRecipe {
 
@@ -29,6 +31,12 @@ public class InscriberRecipe extends Item2ItemRecipe {
 	@Override
 	public RecipeType<?> getType() {
 		return RecipeInit.INSCRIBER_TYPE.get();
+	}
+
+	@Override
+	public ItemStack assemble(RecipeWrapper input, Provider registries) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

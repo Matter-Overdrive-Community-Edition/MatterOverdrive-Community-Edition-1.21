@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import com.mojang.math.Vector3d;
-import com.mojang.math.Vector3f;
+//import com.mojang.math.Vector3d;
+//import com.mojang.math.Vector3f;
 
 import matteroverdrive.MatterOverdrive;
 import matteroverdrive.client.particle.replicator.ParticleOptionReplicator;
@@ -22,11 +22,18 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
-import net.neoforged.neoforge.common.util.LazyOptional;
-import net.neoforged.neoforge.event.TickEvent.Phase;
+//import net.neoforged.neoforge.common.util.LazyOptional;
+//import net.neoforged.neoforge.event.TickEvent.Phase;
 
-public class TeleporterArrivalHandler extends AbstractServerTickHandler {
+public abstract class TeleporterArrivalHandler extends AbstractServerTickHandler {
 
+	//@Override
+	//public void handleTick(MinecraftServer server, Phase phase,
+	//		boolean enoughTime) {
+//	/	// TODO Auto-generated method stub
+		
+//	}
+/*
 	@Override
 	public void handleTick(MinecraftServer server, Phase phase, boolean enoughTime) {
 		if (phase == Phase.START) {
@@ -99,5 +106,12 @@ public class TeleporterArrivalHandler extends AbstractServerTickHandler {
 		}
 
 	}
+*/
 
+//	@Override
+//	public void handleTick(MinecraftServer server, matteroverdrive.core.event.handler.server.Phase phase,
+//			boolean enoughTime) {
+		// TODO Auto-generated method stub
+		
+//	}
 }

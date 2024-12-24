@@ -40,7 +40,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.util.TriPredicate;
+import net.neoforged.neoforge.common.util.TriPredicate;
 
 public class TilePatternStorage extends GenericMachineTile implements IMatterNetworkMember {
 

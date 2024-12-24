@@ -2,7 +2,6 @@ package matteroverdrive.common.item;
 
 import java.util.List;
 
-import matteroverdrive.References;
 import matteroverdrive.common.item.utils.OverdriveItem;
 import matteroverdrive.core.registers.IBulkRegistryObject;
 import matteroverdrive.core.utils.UtilsText;
@@ -19,7 +18,7 @@ public class ColorUpgrade extends OverdriveItem {
 	public UpgradeColor type;
 
 	public ColorUpgrade(UpgradeColor type) {
-		super(new Item.Properties().tab(References.MODULES).stacksTo(1), false);
+		super(new Item.Properties().stacksTo(1), false);
 		this.type = type;
 	}
 

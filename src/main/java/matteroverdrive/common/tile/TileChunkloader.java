@@ -20,7 +20,7 @@ import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.common.world.ForgeChunkManager;
+import net.neoforged.neoforge.common.world.chunk.ForcedChunkManager;
 
 public class TileChunkloader extends GenericMachineTile {
 
@@ -167,7 +167,7 @@ public class TileChunkloader extends GenericMachineTile {
 
 		for (int i = 0; i <= delta; i++) {
 			for (int j = 0; j <= delta; j++) {
-				ForgeChunkManager.forceChunk((ServerLevel) world, References.ID, ownerPos[i][j], lowerXOffset + i,
+				ForcedChunkManager.forceChunk((ServerLevel) world, References.ID, ownerPos[i][j], lowerXOffset + i,
 						lowerZOffset + j, load, true);
 				String action = load ? "loading" : "unloading";
 				MatterOverdrive.LOGGER.info(action + " chunk at " + lowerXOffset + i + "," + lowerZOffset + j);
